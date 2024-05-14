@@ -1,10 +1,12 @@
-## SD Negeri 173100 Tarutung V 1.0
+## LARASCHOOL V 1.0.0
 <p><b>
-SD Negeri 173100 Tarutung adalah aplikasi website sekolah dibuat dengan framework laravel 8.
+LARASCHOOL adalah aplikasi website sekolah dibuat dengan framework laravel 8.
 </b></p>
 
 ## Setup
-- buka direktori project
+- buka direktori project di terminal anda.
+- ketikan command : cp .env.example .env (copy paste file .env.example)
+- buat database 
 
 Lalu ketik command dibawah ini
 - composer install
@@ -12,11 +14,6 @@ Lalu ketik command dibawah ini
 - php artisan key:generate (generate app key)
 - php artisan migrate (migrasi database)
 - php artisan db:seed 
-
-## Login
-Email : rahmat@example.com
-Password : password
-haloo halo bandung hai
 
 ## Fitur
 # Front / Depan
@@ -34,4 +31,4 @@ haloo halo bandung hai
 - Manage Kategori Artikel (CRUD)
 
 ## Author
-- Rahmat Hidayatullah
+- Kelompok 11

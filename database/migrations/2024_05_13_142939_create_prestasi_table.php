@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuruTable extends Migration
+class CreatePrestasiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateGuruTable extends Migration
      */
     public function up()
     {
-        Schema::create('guru', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('foto'); // Penambahan kolom foto
-            $table->string('nama');
-            $table->string('bidang_keahlian');
-            $table->text('pengalaman');
-            $table->string('pendidikan');
-            $table->string('no_telephon', 20);
+        Schema::create('prestasi', function (Blueprint $table) {
+            $table->id('id_prestasi');
+            $table->string('judul', 20);
+            $table->text('deskripsi');
+            $table->string('gambar', 20);
             $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
@@ -33,6 +30,6 @@ class CreateGuruTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guru');
+        Schema::dropIfExists('prestasi');
     }
 }

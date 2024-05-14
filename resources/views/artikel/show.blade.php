@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <!-- <div class="related-posts section-padding-100-0">
+    <div class="related-posts section-padding-100-0">
         <div class="container-fluid">
             <div class="row">
 
@@ -200,6 +200,6 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
 @stop

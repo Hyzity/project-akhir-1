@@ -19,6 +19,10 @@
             @csrf
             @method('PUT')
             <div class="form-group">
+                <label for="nama">Nama</label>
+                <input value="{{ $guru->nama }}" required="" type="text" name="nama" placeholder="Masukkan Nama Guru" class="form-control"> 
+            </div>
+            <div class="form-group">
                 <label for="bidang_keahlian">Bidang Keahlian</label>
                 <input value="{{ $guru->bidang_keahlian }}" required="" type="text" name="bidang_keahlian" placeholder="Masukkan Bidang Keahlian" class="form-control"> 
             </div>

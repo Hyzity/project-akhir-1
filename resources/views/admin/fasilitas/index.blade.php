@@ -1,6 +1,6 @@
 @extends('layouts.backend.app',[
-    'title' => 'Manage Artikel',
-    'contentTitle' => 'Manage Artikel',
+    'title' => 'Manage Fasilitas',
+    'contentTitle' => 'Manage Fasilitas',
 ])
 @push('css')
 <!-- DataTables -->
@@ -12,16 +12,16 @@
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('admin.artikel.create') }}" class="btn btn-primary btn-sm">Tambah Data</a>
+                <a href="{{ route('admin.fasilitas.create') }}" class="btn btn-primary btn-sm">Tambah Data</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="dataTable1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Judul</th>
-                  <th>Author</th>
-                  <th>Kategori</th>
+                  <th>Deskripsi</th>
+                  <th>Nama Fasilitas</th>
+                  <th>Foto Fasilitas</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -30,28 +30,23 @@
                     $no=1;
                 @endphp
 
-                @foreach($artikel as $art)
+                @foreach($fasilitas as $data)
                 <tr>
                   <td>{{ $no++ }}</td>
-                  <td>{{ $art->judul }}</td>
-                  <td>{{ $art->user->name }}</td>
+                  <td>{{ $data->deskripsi }}</td>
+                  <td>{{ $data->nama_fasilitas }}</td>
+                  <td><img src="{{ asset('storage/foto_fasilitas/'.$data->foto_fasilitas) }}" alt="Foto Fasilitas" style="max-width: 100px;"></td>
                   
                   <td>
-                    @if(auth()->user()->id == $art->user_id)
                     <div class="row ml-2">
-                        <a href="{{ route('admin.artikel.edit',$art->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit fa-fw"></i></a>
+                    <a href="{{ route('admin.fasilitas.edit',$data->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit fa-fw"></i></a>
                         
-                        <form method="POST" action="{{ route('admin.artikel.destroy',$art->id) }}">
+                        <form method="POST" action="{{ route('admin.fasilitas.destroy',$data->id) }}">
                             @csrf
                             @method('DELETE')
                             <button onclick="return confirm('Yakin hapus ?')" type="submit" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></button>
                         </form>
                     </div>
-                    @else
-                    <a href="javasript:void(0)" class="btn btn-danger btn-sm">
-                    <i class="fas fa-ban"></i> No Action Available
-                    </a>
-                    @endif
                   </td>
                 </tr>
                 @endforeach

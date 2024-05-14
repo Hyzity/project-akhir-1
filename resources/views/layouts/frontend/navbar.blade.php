@@ -42,10 +42,10 @@
                     <a style="color: white;" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
                         <a class="dropdown-item" href="{{ route('ekstrakurikuler') }}" >ekstrakurikuler</a>
-                        <a class="dropdown-item" href="{{ route('fasilitas') }} " class="{{ Request::is('fasilitas') ? 'text-primary' : '' }}">Fasilitas</a>
                         <a class="dropdown-item" href="{{ route('contact') }}" class="{{ Request::is('contact') ? 'text-primary' : '' }}">Kritik dan Saran</a>
                     </div>
                 </li>
+                <li><a style="color: white;" href="{{ route('fasilitas') }}" class="{{ Request::segment(1) == 'fasilitas' ? 'text-primary' : '' }}">Fasilitas</a></li>
                 <li><a style="color: white;" href="{{ route('artikel') }}" class="{{ Request::segment(1) == 'artikel' ? 'text-primary' : '' }}">Artikel</a></li>
                 <li><a style="color: white;" href="{{ route('pengumuman') }}" class="{{ Request::segment(1) == 'pengumuman' ? 'text-primary' : '' }}">Pengumuman</a></li>
                 <li><a style="color: white;" href="{{ route('guru') }}" class="{{ Request::segment(1) == 'guru' ? 'text-primary' : '' }}">Guru</a></li>

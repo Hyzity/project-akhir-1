@@ -19,6 +19,8 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>Foto</th> <!-- Kolom foto ditambahkan -->
+                  <th>Nama</th>
                   <th>Bidang Keahlian</th>
                   <th>Pengalaman</th>
                   <th>Pendidikan</th>
@@ -35,11 +37,13 @@
                 @foreach($guru as $data)
                 <tr>
                   <td>{{ $no++ }}</td>
+                  <td><img src="{{ asset('storage/foto_guru/'.$data->foto) }}" alt="Foto Guru" style="max-width: 100px;"></td> <!-- Menampilkan foto guru -->
+                  <td>{{ $data->nama }}</td>
                   <td>{{ $data->bidang_keahlian }}</td>
                   <td>{{ $data->pengalaman }}</td>
                   <td>{{ $data->pendidikan }}</td>
                   <td>{{ $data->no_telephon }}</td>
-                  <<td>{{ $data->user->name }}</td>
+                  <td>{{ $data->user->name }}</td>
                   
                   <td>
                     <div class="row ml-2">

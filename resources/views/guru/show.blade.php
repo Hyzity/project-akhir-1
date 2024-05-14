@@ -14,6 +14,13 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <div class="blog-details-text">
+                        <div class="guru-thumbnail">
+                            @if ($guru->foto)
+                                <img src="{{ asset('uploads/img/guru/') }}/{{ $guru->foto }}" alt="Foto Guru">
+                            @else
+                                <img src="{{ asset('img/guru') }}/default.jpg" alt="Foto Guru">
+                            @endif
+                        </div>
                         <p><strong>Bidang Keahlian:</strong> {{ $guru->bidang_keahlian }}</p>
                         <p><strong>Pengalaman:</strong> {{ $guru->pengalaman }}</p>
                         <p><strong>Pendidikan:</strong> {{ $guru->pendidikan }}</p>

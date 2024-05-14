@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="/" class="brand-link">
-    <img src="{{ asset('img/icons') }}/sd1.png" alt="laravel Logo" class="brand-image img-circle elevation-3"
-         style="opacity: .8">
+    <img src="{{ asset('img/icons') }}/sd1.png" alt="laravel Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">SD 173100</span>
   </a>
 
@@ -35,7 +34,7 @@
           <a href="{{ route('admin.users.index') }}" class="nav-link {{ Request::segment(2) == 'users' ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              Users
+              Admin
             </p>
           </a>
         </li>
@@ -65,18 +64,36 @@
         </li>
         <li class="nav-item">
           <a href="{{ route('admin.agenda.index') }}" class="nav-link {{ Request::segment(2) == 'agenda' ? 'active' : '' }}">
-            <i class="nav-icon fas fa-list"></i>
+            <i class="nav-icon fas fa-clock"></i>
             <p>
-              Agenda
+              Jadwal
             </p>
           </a>
         </li>
 
         <li class="nav-item">
           <a href="{{ route('admin.guru.index') }}" class="nav-link {{ Request::segment(2) == 'guru' ? 'active' : '' }}">
-            <i class="nav-icon fas fa-users"></i>
+            <i class="nav-icon fas fa-user-graduate"></i>
             <p>
               Guru
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{{ route('admin.fasilitas.index') }}" class="nav-link {{ Request::segment(2) == 'fasilitas' ? 'active' : '' }}">
+            <i class="nav-icon fas fa-building"></i>
+            <p>
+              fasilitas
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link {{ Request::segment(2) == 'prestasi' ? 'active' : '' }}">
+            <i class="nav-icon fas fa-trophy"></i>
+            <p>
+              Prestasi
             </p>
           </a>
         </li>

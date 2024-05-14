@@ -27,12 +27,7 @@ class HomeController extends Controller
     public function ekstrakurikuler()
     {
     	return view('home.ekstrakurikuler');
-    }
-
-    public function fasilitas()
-    {
-        return view('home.fasilitas');
-    }
+    }   
 
     public function contact()
     {

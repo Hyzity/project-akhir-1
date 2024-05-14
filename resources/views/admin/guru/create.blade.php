@@ -18,6 +18,10 @@
             <form method="POST" enctype="multipart/form-data" action="{{ route('admin.guru.store') }}">
                 @csrf
                 <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input required type="text" name="nama" placeholder="Masukkan Nama Guru" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="bidang_keahlian">Bidang Keahlian</label>
                     <input required type="text" name="bidang_keahlian" placeholder="Masukkan Bidang Keahlian" class="form-control">
                 </div>
@@ -32,6 +36,10 @@
                 <div class="form-group">
                     <label for="no_telephon">Nomor Telepon</label>
                     <input required type="text" name="no_telephon" placeholder="Masukkan Nomor Telepon" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="foto">Foto Guru</label>
+                    <input type="file" name="foto" class="dropify" data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
                 </div>
                 <div class="form-group">
                     <label>Kategori</label>

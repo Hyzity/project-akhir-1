@@ -16,6 +16,8 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\FasilitasController;
+use App\Models\Fasilitas;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,6 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/ekstrakurikuler',[HomeController::class,'ekstrakurikuler'])->name('ekstrakurikuler');
-Route::get('/fasilitas',[HomeController::class,'fasilitas'])->name('fasilitas');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 
 //Artikel
@@ -50,6 +51,12 @@ Route::get('/pengumuman/{pengumuman:slug}',[PengumumanController::class,'show'])
 Route::get('/guru',[GuruController::class,'index'])->name('guru');
 Route::get('/guru/{guru:slug}',[GuruController::class,'show'])->name('guru.show');
 
+//fasilitas
+Route::get('/fasilitas',[FasilitasController::class,'index'])->name('fasilitas');
+Route::get('/fasilitas/{fasilitas:slug}',[FasilitasController::class,'show'])->name('faslitas.show');
+Route::get('admin/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('admin.fasilitas.edit');
+
+
 //Admin
 Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth']],function(){
 	Route::name('admin.')->group(function(){
@@ -65,5 +72,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::resource('artikel','ArtikelController');
 		Route::resource('kategori-artikel','KategoriArtikelController');
 		Route::resource('guru','GuruController');
+		Route::resource('fasilitas','FasilitasController');
+
 	});
 });
