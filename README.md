@@ -1,6 +1,6 @@
-## LARASCHOOL V 1.0.0
+## SDN 173100 Tarutung V 1.0.0
 <p><b>
-LARASCHOOL adalah aplikasi website sekolah dibuat dengan framework laravel 8.
+SDN 173100 Tarutung adalah aplikasi website sekolah dibuat dengan framework laravel 8.
 </b></p>
 
 ## Setup
