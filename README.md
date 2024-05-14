@@ -1,16 +1,10 @@
-## LARASCHOOL V 1.0.0
+## SD Negeri 173100 Tarutung V 1.0
 <p><b>
-LARASCHOOL adalah aplikasi website sekolah dibuat dengan framework laravel 8.
+SD Negeri 173100 Tarutung adalah aplikasi website sekolah dibuat dengan framework laravel 8.
 </b></p>
 
-## Instalasi
-- download zip <a href="https://github.com/rahmathidayat9/laraschool/archive/master.zip">disini</a> 
-- atau clone : git clone https://github.com/rahmathidayat9/laraschool
-
 ## Setup
-- buka direktori project di terminal anda.
-- ketikan command : cp .env.example .env (copy paste file .env.example)
-- buat database 
+- buka direktori project
 
 Lalu ketik command dibawah ini
 - composer install
