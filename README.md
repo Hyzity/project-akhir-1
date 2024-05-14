@@ -16,6 +16,7 @@ Lalu ketik command dibawah ini
 ## Login
 Email : rahmat@example.com
 Password : password
+haloo halo bandung
 
 ## Fitur
 # Front / Depan
