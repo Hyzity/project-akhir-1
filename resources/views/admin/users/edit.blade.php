@@ -28,7 +28,7 @@
 						<small class="text-secondary">Kosongkan kolom password jika tidak ingin mengubah password</small>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
+						<button type="submit" class="btn btn-primary btn-sm">Ganti Data</button>
 					</div>
 				</form>
 			</div>

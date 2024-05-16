@@ -5,22 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fasilitas extends Model
+class Prestasi extends Model
 {
     use HasFactory;
 
-    protected $table = 'fasilitas';
+    protected $table = 'prestasi';
 
     protected $fillable = [
+        'judul',
         'deskripsi',
-        'nama_fasilitas',
-        'foto_fasilitas',
+        'gambar',
         'user_id',
     ];
 
-    public function getThumbnail()
-    {
-    	return 'uploads/img/fasilitas/'.$this->thumbnail;
-    }
+    
 }
 

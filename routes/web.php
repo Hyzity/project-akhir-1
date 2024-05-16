@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ChangePasswordController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\PrestasiController;
 
 
 
@@ -54,17 +55,19 @@ Route::get('/guru/{guru:slug}',[GuruController::class,'show'])->name('guru.show'
 //fasilitas
 Route::get('/fasilitas',[FasilitasController::class,'index'])->name('fasilitas');
 Route::get('/fasilitas/{fasilitas:slug}',[FasilitasController::class,'show'])->name('faslitas.show');
-Route::get('admin/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('admin.fasilitas.edit');
 
 
 //Admin
 Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth']],function(){
 	Route::name('admin.')->group(function(){
-
+		
 		Route::get('/',[AdminController::class,'index'])->name('index');
 		Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
 		Route::get('/change-password',[ChangePasswordController::class,'index'])->name('change-password.index');
+		Route::get('admin/prestasi', [PrestasiController::class, 'index'])->name('admin.prestasi.index');
+		Route::get('admin/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('admin.fasilitas.edit');
 
+		
 		//Resource Controller
 		Route::resource('users','UsersController');
 		Route::resource('pengumuman','PengumumanController');
@@ -73,6 +76,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::resource('kategori-artikel','KategoriArtikelController');
 		Route::resource('guru','GuruController');
 		Route::resource('fasilitas','FasilitasController');
+		Route::resource('prestasi','PrestasiController');
 
 	});
 });

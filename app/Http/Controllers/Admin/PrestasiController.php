@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Fasilitas;
+use App\Models\Prestasi;
 use App\Services\SummernoteService;
 use App\Services\UploadService;
 use App\Models\User;
 
-class FasilitasController extends Controller
+class PrestasiController extends Controller
 {
 
     private $summernoteService;
@@ -28,8 +29,8 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        $fasilitas = Fasilitas::all();
-        return view('admin.fasilitas.index', compact('fasilitas'));
+        $prestasi = prestasi::all();
+        return view('admin.prestasi.index', compact('prestasi'));
     }
 
     /**
@@ -40,7 +41,7 @@ class FasilitasController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('admin.fasilitas.create', compact('users'));
+        return view('admin.prestasi.create', compact('users'));
     }
 
     /**
@@ -65,18 +66,17 @@ class FasilitasController extends Controller
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('public/foto_fasilitas', $filename); // Pastikan jalur penyimpanan sesuai
         }
-        
     
         // Buat fasilitas baru
         Fasilitas::create([
             'deskripsi' => $this->summernoteService->imageUpload('artikel'),
             'nama_fasilitas' => $request->nama_fasilitas,
             'foto_fasilitas' => $this->uploadService->imageUpload('artikel'),
-            'user_id' => $request->user_id, // Tambahkan user_id jika ada
+            'user_id' => $request->user_id,
         ]);
     
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil ditambahkan');
+        return redirect()->route('admin.prestasi.index')->with('success', 'Fasilitas berhasil ditambahkan');
     }
     
 
@@ -88,14 +88,14 @@ class FasilitasController extends Controller
      */
     public function show(Fasilitas $fasilitas)
     {
-        return view('admin.fasilitas.show', compact('fasilitas'));
+        return view('admin.prestasi.show', compact('fasilitas'));
     }
 
     public function destroy(Fasilitas $fasilitas)
     {
         $fasilitas->delete();
 
-        return redirect()->route('admin.fasilitas.index')->with('success', 'Data fasilitas berhasil dihapus');
+        return redirect()->route('admin.prestasi.index')->with('success', 'Data fasilitas berhasil dihapus');
     }
 
     /**
