@@ -45,7 +45,7 @@ class PengumumanController extends Controller
         ]);
         Pengumuman::create($request->all());
 
-        return redirect()->route('admin.pengumuman.index')->with('success','Data berhasil ditambah');
+        return redirect()->route('admin.pengumuman.index')->with('success','Pengumuman berhasil ditambah');
     }
 
     /**
@@ -85,7 +85,7 @@ class PengumumanController extends Controller
         ]);
         $pengumuman->update($request->all());
            
-        return redirect()->route('admin.pengumuman.index')->with('success','Data berhasil diupdate');
+        return redirect()->route('admin.pengumuman.index')->with('success','Pengumuman berhasil diupdate');
     }
 
     /**
@@ -99,6 +99,6 @@ class PengumumanController extends Controller
         $this->authorize('delete',$pengumuman);
         
         $pengumuman->delete();
-        return redirect()->route('admin.pengumuman.index')->with('success','Data berhasil dihapus');
+        return redirect()->route('admin.pengumuman.index')->with('success','Pengumuman berhasil dihapus');
     }
 }

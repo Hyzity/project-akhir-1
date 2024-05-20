@@ -18,44 +18,45 @@
                 <form method="POST" enctype="multipart/form-data"
                     action="{{ route('admin.pengumuman.update', $pengumuman->id) }}">
                     @csrf
+                    @method('PUT') <!-- Tambahkan baris ini untuk menyiasati metode PUT -->
                     <div class="form-group">
                         <label for="judul">Judul</label>
-                        <input value="{{ $pengumuman->judul }}" required="" type="" name="judul" placeholder=""
+                        <input value="{{ $pengumuman->judul }}" required="" type="text" name="judul" placeholder=""
                             class="form-control title">
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea value="" required="" name="deskripsi" id="deskripsi" class="text-dark form-control summernote">{!! $pengumuman->deskripsi !!}</textarea>
+                        <textarea required="" name="deskripsi" id="deskripsi" class="text-dark form-control summernote">{!! $pengumuman->deskripsi !!}</textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
                     </div>
+                </form>
+
             </div>
-            </form>
         </div>
-    </div>
-@stop
+    @stop
 
-@push('js')
-    <script type="text/javascript" src="{{ asset('plugins/summernote') }}/summernote-bs4.min.js"></script>
-    <script type="text/javascript">
-        $(".summernote").summernote({
-            height: 500,
-            callbacks: {
-                // callback for pasting text only (no formatting)
-                onPaste: function(e) {
-                    var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData(
-                        'Text');
-                    e.preventDefault();
-                    bufferText = bufferText.replace(/\r?\n/g, '<br>');
-                    document.execCommand('insertHtml', false, bufferText);
+    @push('js')
+        <script type="text/javascript" src="{{ asset('plugins/summernote') }}/summernote-bs4.min.js"></script>
+        <script type="text/javascript">
+            $(".summernote").summernote({
+                height: 500,
+                callbacks: {
+                    // callback for pasting text only (no formatting)
+                    onPaste: function(e) {
+                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData(
+                            'Text');
+                        e.preventDefault();
+                        bufferText = bufferText.replace(/\r?\n/g, '<br>');
+                        document.execCommand('insertHtml', false, bufferText);
+                    }
                 }
-            }
-        })
+            })
 
-        $(".summernote").on("summernote.enter", function(we, e) {
-            $(this).summernote("pasteHTML", "<br><br>");
-            e.preventDefault();
-        });
-    </script>
-@endpush
+            $(".summernote").on("summernote.enter", function(we, e) {
+                $(this).summernote("pasteHTML", "<br><br>");
+                e.preventDefault();
+            });
+        </script>
+    @endpush

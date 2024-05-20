@@ -6,9 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Guru;
 use App\Models\User;
+use App\Services\UploadService;
+use App\Events\ArtikelDeleteEvent;
+use App\Services\SummernoteService;
+use Str;
+use File;
 
 class GuruController extends Controller
 {
+    protected $uploadService;
+
+    public function __construct(UploadService $uploadService)
+    {
+        $this->uploadService = $uploadService;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -39,34 +52,42 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the request data
         $request->validate([
             'nama' => 'required',
             'bidang_keahlian' => 'required',
             'pengalaman' => 'required',
             'pendidikan' => 'required',
             'no_telephon' => 'required|max:20',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Add validation for photo
-            'user_id' => 'required|exists:users,id'
-        ]);
-        
-        // Upload foto
-        $foto = $request->file('foto')->store('public/foto_guru');
-
-        // Create a new Guru instance and store it in the database
-        Guru::create([
-            'nama'=>$request->nama,
-            'bidang_keahlian' => $request->bidang_keahlian,
-            'pengalaman' => $request->pengalaman,
-            'pendidikan' => $request->pendidikan,
-            'no_telephon' => $request->no_telephon,
-            'foto' => $foto, // Store the photo path in database
-            'user_id' => $request->user_id
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // Validasi file foto
         ]);
 
-        // Redirect back with success message
-        return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil ditambahkan');
+        // Periksa apakah ada file yang diunggah
+        if ($request->hasFile('foto')) {
+            // Upload foto
+            $filename = $this->uploadService->imageUpload('foto_guru', $request, 'foto');
+
+            // Buat instansi Guru dan simpan ke database
+            Guru::create([
+                'nama' => $request->nama,
+                'bidang_keahlian' => $request->bidang_keahlian,
+                'pengalaman' => $request->pengalaman,
+                'pendidikan' => $request->pendidikan,
+                'no_telephon' => $request->no_telephon,
+                'foto' => $filename, // Simpan nama file di atribut 'foto'
+                'user_id' => auth()->user()->id,
+                // Tambahkan atribut lain sesuai kebutuhan
+            ]);
+
+            // Redirect dengan pesan sukses
+            return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil ditambahkan');
+        } else {
+            // Jika tidak ada file yang diunggah, kembalikan dengan pesan kesalahan
+            return redirect()->back()->withErrors(['foto' => 'Foto guru harus diunggah.']);
+        }
     }
+
+
+
 
     /**
      * Display the specified resource.
@@ -110,11 +131,11 @@ class GuruController extends Controller
             'pendidikan' => 'required',
             'no_telephon' => 'required|max:20',
             'user_id' => auth()->user()->id,
-            
+
         ]);
 
         $guru->update([
-            'nama'=>$request->nama,
+            'nama' => $request->nama,
             'bidang_keahlian' => $request->bidang_keahlian,
             'pengalaman' => $request->pengalaman,
             'pendidikan' => $request->pendidikan,
@@ -139,5 +160,4 @@ class GuruController extends Controller
 
         return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil dihapus');
     }
-
 }

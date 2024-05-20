@@ -64,7 +64,7 @@
                         class="nav-link {{ Request::segment(2) == 'agenda' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-clock"></i>
                         <p>
-                            Jadwal
+                            Agenda
                         </p>
                     </a>
                 </li>

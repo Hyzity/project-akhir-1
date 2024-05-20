@@ -41,15 +41,6 @@
                     <label for="foto">Foto Guru</label>
                     <input type="file" name="foto" class="dropify" data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
                 </div>
-                <div class="form-group">
-                    <label>Kategori</label>
-                    <select required class="form-control" name="user_id">
-                        <option selected disabled>- PILIH PENGGUNA -</option>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">UPLOAD</button>

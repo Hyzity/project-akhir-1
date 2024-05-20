@@ -66,6 +66,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::get('/change-password',[ChangePasswordController::class,'index'])->name('change-password.index');
 		Route::get('admin/prestasi', [PrestasiController::class, 'index'])->name('admin.prestasi.index');
 		Route::get('admin/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('admin.fasilitas.edit');
+		Route::put('/admin/pengumuman/{id}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
+
 
 		
 		//Resource Controller

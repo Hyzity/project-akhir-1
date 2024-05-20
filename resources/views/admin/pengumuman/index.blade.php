@@ -20,7 +20,7 @@
                 <tr>
                   <th>No</th>
                   <th>Judul</th>
-                  <th>Author</th>
+                  <th>Pembuat</th>
                   <th>Tgl Upload</th>
                   <th>Action</th>
                 </tr>
@@ -45,12 +45,12 @@
                         <form method="POST" action="{{ route('admin.pengumuman.destroy',$pn->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button onclick="return confirm('Yakin hapus ?')" type="submit" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></button>
+                            <button onclick="return confirm('Apakah anda ingin menghapus ?')" type="submit" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></button>
                         </form>
                     </div>
                     @else
                     <a href="javasript:void(0)" class="btn btn-danger btn-sm">
-                    <i class="fas fa-ban"></i> No Action Available
+                    <i class="fas fa-ban"></i> Tidak ada apa-apa disini~
                     </a>
                     @endif
                   </td>
