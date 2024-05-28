@@ -50,11 +50,11 @@ Route::get('/pengumuman/{pengumuman:slug}',[PengumumanController::class,'show'])
 
 //guru
 Route::get('/guru',[GuruController::class,'index'])->name('guru');
-Route::get('/guru/{guru:slug}',[GuruController::class,'show'])->name('guru.show');
+Route::get('/guru/show/{id}',[GuruController::class,'show'])->name('guru.show');
 
 //fasilitas
 Route::get('/fasilitas',[FasilitasController::class,'index'])->name('fasilitas');
-Route::get('/fasilitas/{fasilitas:slug}',[FasilitasController::class,'show'])->name('faslitas.show');
+Route::get('/fasilitas/show/{id}',[FasilitasController::class,'show'])->name('fasilitas.show');
 
 
 //Admin
@@ -71,6 +71,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 
 		// Rute POST untuk menyimpan data guru
 		Route::post('/guru/store', [GuruController::class, 'store'])->name('guru.store');
+		Route::post('/faslitas/store', [FasilitasController::class, 'store'])->name('fasilitas.store');
+
 
 		
 		//Resource Controller

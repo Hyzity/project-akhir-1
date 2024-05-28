@@ -15,11 +15,12 @@ class CreateFasilitasTable extends Migration
     {
         Schema::create('fasilitas', function (Blueprint $table) {
             $table->id(); // Primary key
-            $table->string('deskripsi', 200);
-            $table->string('nama_fasilitas', 200);
+            $table->string('deskripsi');
+            $table->string('nama_fasilitas');
             $table->bigInteger('user_id')->nullable();
-            $table->string('foto_fasilitas', 100); // tambahkan kolom foto_fasilitas
+            $table->string('foto_fasilitas', 100);
             $table->timestamps();
+            
         });
     }
 

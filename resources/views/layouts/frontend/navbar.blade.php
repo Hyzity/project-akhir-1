@@ -2,14 +2,14 @@
     <header class="header-container" style="text-align: center;">
         <div class="header-content" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
             <div class="container tut" style="flex: 1; text-align: center;">
-                <img src="img/bg/tut.png" alt="Left Image" style="height: 100px; object-fit: contain; width: 150px;">
+                <img src="{{asset('img/bg/tut.png')}}" alt="Left Image" style="height: 100px; object-fit: contain; width: 150px;">
             </div>
             <div style="margin: 0 10px; font-weight: 500; font-size: 20px; text-align: center;">
                 <h1 style="margin: 0;">SD Negeri 173100</h1>
                 <h1 style="margin: 0;">TARUTUNG</h1>
             </div>
             <div class="container sd" style="flex: 1; text-align: center;">
-                <img src="img/bg/sd1.png" alt="Right Image" style="height: 100px; object-fit: contain;">
+                <img src="{{asset('img/bg/sd1.png')}}" alt="Right Image" style="height: 100px; object-fit: contain;">
             </div>
         </div>
     </header>

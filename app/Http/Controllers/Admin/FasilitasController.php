@@ -7,17 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Fasilitas;
 use App\Services\SummernoteService;
 use App\Services\UploadService;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class FasilitasController extends Controller
 {
+    protected $uploadService;
 
-    private $summernoteService;
-    private $uploadService;
-
-    public function __construct(SummernoteService $summernoteService, UploadService $uploadService)
+    public function __construct(UploadService $uploadService)
     {
-        $this->summernoteService = $summernoteService;
         $this->uploadService = $uploadService;
     }
 
@@ -49,45 +47,71 @@ class FasilitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request)
+    // {
+    //     try {
+    //         // Upload file
+    //         $path = 'fasilitas'; // Path tujuan untuk penyimpanan foto fasilitas
+    //         $filename = $this->uploadService->imageUpload($path);
+    
+    //         // Buat fasilitas baru
+    //         $fasilitas = new Fasilitas();
+    //         $fasilitas->deskripsi = $request->input('deskripsi');
+    //         $fasilitas->nama_fasilitas = $request->input('nama_fasilitas');
+    //         $fasilitas->foto_fasilitas = $filename;
+    //         $fasilitas->user_id = $request->input('user_id'); // Tambahkan user_id jika ada
+    //         $fasilitas->save();
+    //         // Redirect dengan pesan sukses
+    //         return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil ditambahkan');
+    //     } catch (\Exception $e) {
+    //         return back()->withErrors(['error' => $e->getMessage()]);
+    //     }
+    // }
+
+        
+        
+        
+    // }
+
     public function store(Request $request)
     {
-        // Validasi input
-        $request->validate([
-            'deskripsi' => 'required|string|max:255',
-            'nama_fasilitas' => 'required|string|max:255',
-            'foto_fasilitas' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'user_id' => 'nullable|exists:users,id'
+        $validatedData = $request->validate([
+            'nama_fasilitas' => 'required',
+            'deskripsi' => 'required',
+            'foto_fasilitas' => 'required',
         ]);
-    
-        // Upload file
+
+        $validatedData['user_id'] = Auth::user()->id ?? null;
+
         if ($request->hasFile('foto_fasilitas')) {
             $file = $request->file('foto_fasilitas');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('public/foto_fasilitas', $filename); // Pastikan jalur penyimpanan sesuai
+            $namaFile = time() . "_" . $file->getClientOriginalName();
+            $tujuanFile = 'uploads/img/fasilitas/' . $namaFile;
+
+            $file->move(public_path('uploads/img/fasilitas/'), $namaFile);
+
+            $validatedData['foto_fasilitas'] = $tujuanFile;
         }
-        
-    
-        // Buat fasilitas baru
-        Fasilitas::create([
-            'deskripsi' => $this->summernoteService->imageUpload('artikel'),
-            'nama_fasilitas' => $request->nama_fasilitas,
-            'foto_fasilitas' => $this->uploadService->imageUpload('artikel'),
-            'user_id' => $request->user_id, // Tambahkan user_id jika ada
-        ]);
-    
-        // Redirect dengan pesan sukses
-        return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil ditambahkan');
+
+        Fasilitas::create($validatedData);
+
+
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil disimpan');
     }
     
-
+    
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function show(Fasilitas $fasilitas)
+    public function show($id)
     {
+        // Fetch the fasilitas data with the specified ID
+        $fasilitas = Fasilitas::findOrFail($id);
+
+        // Return the view to display the fasilitas data
         return view('admin.fasilitas.show', compact('fasilitas'));
     }
 

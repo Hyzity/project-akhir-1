@@ -53,7 +53,7 @@ class GuruController extends Controller
     public function store(Request $request)
     {
         try {
-            $path = 'gurus'; // Contoh path tujuan
+            $path = 'guru'; // Contoh path tujuan
             $filename = $this->uploadService->imageUpload($path);
 
             // Simpan data guru ke database (asumsi Anda memiliki model Guru)

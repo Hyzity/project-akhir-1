@@ -14,8 +14,9 @@ class GuruController extends Controller
     	return view('guru.index',compact('guru'));
     }
 
-    public function show(Guru $guru)
+    public function show($id)
     {
+        $guru = Guru::findOrFail($id);
     	return view('guru.show',compact('guru'));
     }
 }

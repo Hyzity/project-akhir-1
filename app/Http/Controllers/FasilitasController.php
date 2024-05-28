@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Fasilitas;
 
 class FasilitasController extends Controller
 {
     public function index()
     {
-        $fasilitas = Fasilitas::latest()->paginate(4);
-        return view('fasilitas.index', compact('fasilitas'));
+    	$fasilitas = Fasilitas::with(['user'])->latest()->paginate(4);
+    	return view('fasilitas.index',compact('fasilitas'));
     }
 
-    public function show(Fasilitas $fasilitas)
+    public function show($id)
     {
-        return view('fasilitas.show', compact('fasilitas'));
+        $fasilitas = Fasilitas::findOrFail($id);
+    	return view('fasilitas.show',compact('faslitas'));
     }
-
-    
 }

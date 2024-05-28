@@ -38,7 +38,7 @@
                             @foreach ($guru as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td><img src="{{ asset('storage/foto_guru/' . $data->foto) }}" alt="Foto Guru"
+                                    <td><img src="{{ asset('uploads/img/guru/' . $data->foto) }}" alt="Foto Guru"
                                             style="max-width: 100px;"></td> <!-- Menampilkan foto guru -->
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->bidang_keahlian }}</td>

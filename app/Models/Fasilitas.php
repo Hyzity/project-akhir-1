@@ -14,9 +14,14 @@ class Fasilitas extends Model
     protected $fillable = [
         'deskripsi',
         'nama_fasilitas',
-        'foto_fasilitas',
         'user_id',
+        'foto_fasilitas',
     ];
+
+    public function user()
+    {
+    	return $this->belongsTo(User::class);
+    }
 
     public function getThumbnail()
     {

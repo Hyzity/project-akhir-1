@@ -18,9 +18,9 @@
             </svg>  Pengumuman</h4>
     </div>
     <div>
-        <img src="img/bg/taput.png" alt="" style="width: 100px;">
-        <img src="img/bg/sd1.png" alt="" style="width: 90px;">
-        <img src="img/bg/tut.png" alt="" style="width: 95px;">
+        <img src="{{ asset('img/bg/taput.png') }}" alt="" style="width: 100px;">
+        <img src="{{ asset('img/bg/sd1.png') }}" alt="" style="width: 90px;">
+        <img src="{{ asset('img/bg/tut.png') }}" alt="" style="width: 95px;">
     </div>
 </footer>
 <hr style="border: 2px solid black;">
