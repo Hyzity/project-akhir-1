@@ -52,37 +52,24 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'bidang_keahlian' => 'required',
-            'pengalaman' => 'required',
-            'pendidikan' => 'required',
-            'no_telephon' => 'required|max:20',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // Validasi file foto
-        ]);
+        try {
+            $path = 'gurus'; // Contoh path tujuan
+            $filename = $this->uploadService->imageUpload($path);
 
-        // Periksa apakah ada file yang diunggah
-        if ($request->hasFile('foto')) {
-            // Upload foto
-            $filename = $this->uploadService->imageUpload('foto_guru', $request, 'foto');
+            // Simpan data guru ke database (asumsi Anda memiliki model Guru)
+            $guru = new Guru();
+            $guru->nama = $request->input('nama');
+            $guru->bidang_keahlian = $request->input('bidang_keahlian');
+            $guru->pengalaman = $request->input('pengalaman');
+            $guru->pendidikan = $request->input('pendidikan');
+            $guru->no_telephon = $request->input('no_telephon');
+            $guru->foto = $filename;  // Simpan nama file foto ke database
+            $guru->save();
 
-            // Buat instansi Guru dan simpan ke database
-            Guru::create([
-                'nama' => $request->nama,
-                'bidang_keahlian' => $request->bidang_keahlian,
-                'pengalaman' => $request->pengalaman,
-                'pendidikan' => $request->pendidikan,
-                'no_telephon' => $request->no_telephon,
-                'foto' => $filename, // Simpan nama file di atribut 'foto'
-                'user_id' => auth()->user()->id,
-                // Tambahkan atribut lain sesuai kebutuhan
-            ]);
-
-            // Redirect dengan pesan sukses
-            return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil ditambahkan');
-        } else {
-            // Jika tidak ada file yang diunggah, kembalikan dengan pesan kesalahan
-            return redirect()->back()->withErrors(['foto' => 'Foto guru harus diunggah.']);
+            // Berikan respon sukses atau lakukan hal lain yang diperlukan
+            return redirect()->route('admin.guru.index')->with('success', 'Guru berhasil ditambahkan');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 

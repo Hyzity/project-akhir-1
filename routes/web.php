@@ -69,6 +69,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::put('/admin/pengumuman/{id}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
 
 
+		// Rute POST untuk menyimpan data guru
+		Route::post('/guru/store', [GuruController::class, 'store'])->name('guru.store');
+
 		
 		//Resource Controller
 		Route::resource('users','UsersController');

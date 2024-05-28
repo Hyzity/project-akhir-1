@@ -21,7 +21,7 @@
                 <label for="judul">Judul</label>
                 <input required="" value="{{ $agenda->judul }}" required="" type="" name="judul" id="judul" placeholder="" class="form-control title"> 
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -80,7 +80,7 @@
             }
         }
     })
-
+    
     $(".summernote").on("summernote.enter", function(we, e) {
         $(this).summernote("pasteHTML", "<br><br>");
         e.preventDefault();

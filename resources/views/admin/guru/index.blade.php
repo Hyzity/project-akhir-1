@@ -45,8 +45,6 @@
                                     <td>{{ $data->pengalaman }}</td>
                                     <td>{{ $data->pendidikan }}</td>
                                     <td>{{ $data->no_telephon }}</td>
-                                    <td>{{ $data->user->name }}</td>
-
                                     <td>
                                         <div class="row ml-2">
                                             <a href="{{ route('admin.guru.edit', $data->id) }}"
