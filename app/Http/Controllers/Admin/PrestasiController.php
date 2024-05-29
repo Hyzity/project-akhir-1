@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Fasilitas;
 use App\Models\Prestasi;
 use App\Services\SummernoteService;
 use App\Services\UploadService;
 use App\Models\User;
+use Illuminate\Http\Response;
+use Illuminate\View\Factory;
 
 class PrestasiController extends Controller
 {
@@ -52,56 +53,118 @@ class PrestasiController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'deskripsi' => 'required|string|max:255',
-            'nama_fasilitas' => 'required|string|max:255',
-            'foto_fasilitas' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'user_id' => 'nullable|exists:users,id'
+            'judul' => 'required|string|max:255',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
-    
-        // Upload file
-        if ($request->hasFile('foto_fasilitas')) {
-            $file = $request->file('foto_fasilitas');
+
+        $filename = null;
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('public/foto_fasilitas', $filename); // Pastikan jalur penyimpanan sesuai
+            $destinationPath = public_path('img/prestasi');
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
         }
-    
-        // Buat fasilitas baru
-        Fasilitas::create([
-            'deskripsi' => $this->summernoteService->imageUpload('artikel'),
-            'nama_fasilitas' => $request->nama_fasilitas,
-            'foto_fasilitas' => $this->uploadService->imageUpload('artikel'),
+
+        Prestasi::create([
+            'deskripsi' => $request->deskripsi,
+            'judul' => $request->judul,
+            'gambar' => $filename ? $filename : null,
             'user_id' => $request->user_id,
         ]);
-    
-        // Redirect dengan pesan sukses
-        return redirect()->route('admin.prestasi.index')->with('success', 'Fasilitas berhasil ditambahkan');
+
+        return redirect()->route('admin.prestasi.index')->with('success', 'Prestasi berhasil ditambahkan');
     }
-    
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Fasilitas  $fasilitas
+     * @param  \App\Models\Prestasi  $prestasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Fasilitas $fasilitas)
+    public function edit($id)
     {
-        return view('admin.prestasi.show', compact('fasilitas'));
-    }
-
-    public function destroy(Fasilitas $fasilitas)
-    {
-        $fasilitas->delete();
-
-        return redirect()->route('admin.prestasi.index')->with('success', 'Data fasilitas berhasil dihapus');
+        $prestasi = Prestasi::find($id);
+        if (!$prestasi) {
+            return redirect()->route('admin.prestasi.index')->with('error', 'Data not found');
+        }
+        return view('admin.prestasi.edit', compact('prestasi'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
-     * @param  \App\Models\Fasilitas  $fasilitas
+     * @param  \App\Models\Prestasi  $prestasi
      * @return \Illuminate\Http\Response
      */
+    public function update(Request $request, $id)
+    {
+        $prestasi = Prestasi::find($id);
+        if (!$prestasi) {
+            return redirect()->route('admin.prestasi.index')->with('error', 'Data not found');
+        }
+
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:png,jpg,gif,jpeg,svg,webp,jfif|max:2048'
+        ]);
+
+        try {
+            if ($request->hasFile('gambar')) {
+                $file = $request->file('gambar');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('img/prestasi'), $filename);
+
+                if ($prestasi->gambar) {
+                    $oldImagePath = public_path('img/prestasi/' . $prestasi->gambar);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+
+                $prestasi->gambar = $filename;
+            }
+
+            $prestasi->judul = $request->input('judul');
+            $prestasi->deskripsi = $request->input('deskripsi');
+            $prestasi->user_id = $request->input('user_id');
+
+            $prestasi->save();
+
+            return redirect()->route('admin.prestasi.index')->with('success', 'Data updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Fitur ini belum dikembangkan oleh developer. Mohon bersabar.');
+        }
+    }
+
+    public function destroy($id)
+    {
+        $prestasi = Prestasi::find($id);
+        if (!$prestasi) {
+            return redirect()->route('admin.prestasi.index')->with('error', 'Data tidak ditemukan');
+        }
+
+        try {
+            if ($prestasi->gambar) {
+                $imagePath = public_path('img/prestasi/' . $prestasi->gambar);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+
+            $prestasi->delete();
+
+            return redirect()->route('admin.prestasi.index')->with('success', 'Data deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Penghapusan data gagal. Silahkan coba lagi nanti.');
+        }
+    }
 }

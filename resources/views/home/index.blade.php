@@ -1,11 +1,9 @@
 @extends('layouts.frontend.app',[
-'title' => 'Home',
+'title' => 'SD Negeri 173100 Tarutung',
 ])
 @section('content')
-<!-- ##### Hero Area Start ##### -->
 
-
-<!-- ##### Hero Area End ##### -->
+<title>SD Negeri 173100 Tarutung</title>
 
 <section class="welcome-section" style="display: flex; margin: 0; padding: 300px 150px 150px 150px; background-image: url('img/bg/bg1.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container" style="max-width: 1200px; margin: 0 auto;">
@@ -14,11 +12,7 @@
         <h2 style="color: white;">Tarutung</h2>
         <h3 style="color: white;">Tapanuli Utara</h3>
         <button style="background-color: transparent; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.1s ease; border-radius: 50px; margin-top: 30px; color: white; border: 1px solid white;">
-            <a style="color: white; text-decoration: none;" href="/tentangsekolah">Pelajari Lebih
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-                </svg><br>
-                Lanjut
+            <a style="color: white; text-decoration: none;" href="/tentangsekolah">Pelajari Lebih Lanjut <i class="bi bi-arrow-right-circle"></i>
             </a>
         </button>
     </div>
