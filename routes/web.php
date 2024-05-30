@@ -18,6 +18,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\PrestasiHomeController;
 use App\Models\Fasilitas;
 
 /*
@@ -55,6 +56,10 @@ Route::get('/guru/show/{id}',[GuruController::class,'show'])->name('guru.show');
 //fasilitas
 Route::get('/fasilitas',[FasilitasController::class,'index'])->name('fasilitas');
 Route::get('/fasilitas/show/{id}',[FasilitasController::class,'show'])->name('fasilitas.show');
+
+//Prestasi
+Route::get('/prestasi',[PrestasiHomeController::class,'index'])->name('prestasi');
+
 
 
 //Admin

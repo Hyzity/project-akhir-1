@@ -10,7 +10,8 @@ use App\Services\UploadService;
 use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\View\Factory;
-
+use Illuminate\Auth\Middleware\Authorize;
+use Illuminate\Support\Facades\Auth;
 class PrestasiController extends Controller
 {
 
@@ -71,12 +72,12 @@ class PrestasiController extends Controller
 
             $file->move($destinationPath, $filename);
         }
-
+        $user_id = Auth::id();
         Prestasi::create([
             'deskripsi' => $request->deskripsi,
             'judul' => $request->judul,
             'gambar' => $filename ? $filename : null,
-            'user_id' => $request->user_id,
+            'user_id' => $user_id,
         ]);
 
         return redirect()->route('admin.prestasi.index')->with('success', 'Prestasi berhasil ditambahkan');
@@ -116,6 +117,8 @@ class PrestasiController extends Controller
             'deskripsi' => 'required|string',
             'gambar' => 'nullable|image|mimes:png,jpg,gif,jpeg,svg,webp,jfif|max:2048'
         ]);
+        $user_id = Auth::id();
+
 
         try {
             if ($request->hasFile('gambar')) {
@@ -135,7 +138,7 @@ class PrestasiController extends Controller
 
             $prestasi->judul = $request->input('judul');
             $prestasi->deskripsi = $request->input('deskripsi');
-            $prestasi->user_id = $request->input('user_id');
+            $prestasi->user_id = $user_id;
 
             $prestasi->save();
 

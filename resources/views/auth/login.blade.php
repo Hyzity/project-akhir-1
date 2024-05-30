@@ -59,11 +59,6 @@
             <!-- /.col -->
           </div>
         </form>
-
-        <p class="mt-4">
-          <p style="text-align:center;">Belum mempunyai akun ?</p>
-          <center><a href="/">Daftarkan Sekarang</a></center>
-        </p>
       </div>
       <!-- /.card-body -->
     </div>

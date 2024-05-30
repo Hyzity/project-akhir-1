@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('templates/frontend/clever') }}/img/core-img/favicon.ico">
-
+    <title>{{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('templates/frontend/clever') }}/style.css">
     <!-- @include('layouts.frontend.style') -->
     @stack('css')
