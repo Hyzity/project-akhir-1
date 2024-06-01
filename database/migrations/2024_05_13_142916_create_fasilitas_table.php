@@ -14,15 +14,13 @@ class CreateFasilitasTable extends Migration
     public function up()
     {
         Schema::create('fasilitas', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('deskripsi');
-            $table->string('nama_fasilitas');
-            $table->bigInteger('user_id')->nullable();
-            $table->string('foto_fasilitas');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->id();
+            $table->string('deskripsi', 255);
+            $table->string('nama_fasilitas', 255);
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('foto_fasilitas', 255);
 
             $table->timestamps();
-            
         });
     }
 
