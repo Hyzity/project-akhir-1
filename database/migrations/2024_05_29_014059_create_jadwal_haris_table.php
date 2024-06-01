@@ -17,7 +17,7 @@ class CreateJadwalHarisTable extends Migration
             $table->id();
             $table->string('nama_hari');
             $table->unsignedBigInteger('id_kelas');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable(); // Jadikan nullable agar bisa menerima NULL
             $table->foreign('id_kelas')->references('id')->on('nama_kelas')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

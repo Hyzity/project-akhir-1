@@ -14,14 +14,14 @@ class CreateGuruTable extends Migration
     public function up()
     {
         Schema::create('guru', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('foto'); // Penambahan kolom foto
+            $table->id();
+            $table->string('foto')->nullable(); // Kolom foto bisa bernilai null
             $table->string('nama');
             $table->string('bidang_keahlian');
             $table->text('pengalaman');
             $table->string('pendidikan');
             $table->string('no_telephon', 20);
-            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();

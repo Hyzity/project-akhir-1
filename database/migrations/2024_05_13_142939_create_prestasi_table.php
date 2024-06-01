@@ -14,11 +14,11 @@ class CreatePrestasiTable extends Migration
     public function up()
     {
         Schema::create('prestasi', function (Blueprint $table) {
-            $table->id('id_prestasi');
+            $table->id(); // Menggunakan default primary key 'id'
             $table->string('judul', 100);
             $table->text('deskripsi');
             $table->string('gambar', 100);
-            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
