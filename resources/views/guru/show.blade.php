@@ -6,9 +6,8 @@
 
 
 
-<div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" style="background-image: url({{ asset('img/bg/guru.png') }});">
-    <div class="blog-details-headline">
-        <h3>{{ $guru->nama }}</h3>
+<div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" " >
+        <h3 style="padding-top: 150px;">{{ $guru->nama }}</h3>
     </div>
 </div>
 
@@ -26,10 +25,10 @@
                 </div>
                 <div style="margin-left: 100px;">
                     <ul style="list-style-type: none; padding: 0;">
-                        <li style="margin-bottom: 30px; color: white;"><strong>Bidang Keahlian:</strong> {{ $guru->bidang_keahlian }}</li>
-                        <li style="margin-bottom: 30px; color: white;"><strong>Pengalaman:</strong> {{ $guru->pengalaman }}</li>
-                        <li style="margin-bottom: 30px; color: white;"><strong>Pendidikan:</strong> {{ $guru->pendidikan }}</li>
-                        <li style="margin-bottom: 30px; color: white;"><strong>Nomor Telepon:</strong> {{ $guru->no_telephon }} </li>
+                        <li style="margin-bottom: 30px; color: white; font-size: 25px;"><strong>Bidang Keahlian:</strong> {{ $guru->bidang_keahlian }}</li>
+                        <li style="margin-bottom: 30px; color: white; font-size: 25px;"><strong>Pengalaman:</strong> {{ $guru->pengalaman }}</li>
+                        <li style="margin-bottom: 30px; color: white; font-size: 25px;"><strong>Pendidikan:</strong> {{ $guru->pendidikan }}</li>
+                        <li style="margin-bottom: 30px; color: white; font-size: 25px;"><strong>Nomor Telepon:</strong> {{ $guru->no_telephon }} </li>
                     </ul>
                 </div>
             </div>

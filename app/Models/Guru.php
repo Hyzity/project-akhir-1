@@ -27,6 +27,6 @@ class Guru extends Model
     }
     public function getThumbnail()
     {
-    	return 'uploads/img/gurus/'.$this->foto;
+    	return 'uploads/img/guru/'.$this->foto;
     }
 }

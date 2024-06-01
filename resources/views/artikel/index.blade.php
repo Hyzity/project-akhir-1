@@ -3,7 +3,7 @@
 ])
 @section('content')
 <!-- ##### Blog Area Start ##### -->
-<section class="blog-area section-padding-100-0 mb-50">
+<section  style="padding-top: 200px" class="blog-area section-padding-100-0 mb-50">
     <div class="container">
         <div class="row">
             <div class="col-12">

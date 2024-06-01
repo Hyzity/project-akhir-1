@@ -20,6 +20,8 @@ class CreatePengumumanTable extends Migration
             $table->string('tgl')->nullable();
             $table->string('slug')->nullable();
             $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

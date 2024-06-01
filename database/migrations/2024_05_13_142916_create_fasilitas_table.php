@@ -18,7 +18,9 @@ class CreateFasilitasTable extends Migration
             $table->string('deskripsi');
             $table->string('nama_fasilitas');
             $table->bigInteger('user_id')->nullable();
-            $table->string('foto_fasilitas', 100);
+            $table->string('foto_fasilitas');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
             
         });

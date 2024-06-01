@@ -25,7 +25,7 @@ class Fasilitas extends Model
 
     public function getThumbnail()
     {
-    	return 'uploads/img/fasilitas/'.$this->thumbnail;
+    	return 'uploads/img/fasilitas/'.$this->foto_fasilitas;
     }
 }
 

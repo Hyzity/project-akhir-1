@@ -6,13 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ChangePasswordController;
+use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Admin\PrestasiController;
+
 
 
 
 //Controllers Namespace
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
@@ -20,6 +22,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\PrestasiHomeController;
 use App\Models\Fasilitas;
+require __DIR__ . '/admin.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +60,14 @@ Route::get('/guru/show/{id}',[GuruController::class,'show'])->name('guru.show');
 Route::get('/fasilitas',[FasilitasController::class,'index'])->name('fasilitas');
 Route::get('/fasilitas/show/{id}',[FasilitasController::class,'show'])->name('fasilitas.show');
 
-//Prestasi
-Route::get('/prestasi',[PrestasiHomeController::class,'index'])->name('prestasi');
+//prestasi
+Route::get('/prestasi', [PrestasiController::class,'index'])->name('prestasi');
 
+// Route::get('',[FasilitasController::class,'index'])->name('fasilitas.show');
+
+//agenda
+// Route::get('/agenda',[AgendaController::class,'index'])->name('agenda');
+// Route::get('/agenda/show/{id}',[AgendaController::class,'show'])->name('agenda.show');
 
 
 //Admin
@@ -73,12 +81,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::get('admin/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('admin.fasilitas.edit');
 		Route::put('/admin/pengumuman/{id}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
 
-
-		// Rute POST untuk menyimpan data guru
-		Route::post('/guru/store', [GuruController::class, 'store'])->name('guru.store');
-		Route::post('/faslitas/store', [FasilitasController::class, 'store'])->name('fasilitas.store');
-
-
 		
 		//Resource Controller
 		Route::resource('users','UsersController');
@@ -89,6 +91,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::resource('guru','GuruController');
 		Route::resource('fasilitas','FasilitasController');
 		Route::resource('prestasi','PrestasiController');
+		Route::resource('jadwal', 'JadwalController');
+		Route::resource('agenda','AgendaController');
 
 	});
 });

@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <div style="padding: 50px 100px 50px 100px; font-size: 20px;">
+        <div style="padding: 50px 50px 50px 50px; font-size: 20px;">
             <h2 style="text-align: center;font-weight: 700; margin: 0 0 25px 0;">Prestasi Akademik dan Non-Akademik</h2>
             <li>Kajurda Aski diraih oleh Rere Veronika Pagadara</li>
             <li>Juara 2 Marturiturian tingkat kabupaten diraih oleh Jeslyn Simarmata</li>

@@ -15,46 +15,47 @@
     </header>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #860000; position: fixed; top: 100px; width: 100%; z-index: 999;">
-    <a class="navbar" href="/" style="color: white;">SDN 173100 Tarutung</a>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom" style="background-color: #860000; position: fixed;  width: 100%; z-index: 999; padding: 0.5rem 2rem;">
+    <a class="navbar-brand" href="/" style="color: white; font-size: 1.5rem;">SDN 173100 Tarutung</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/" style="color: white;">Home</a>
+                <a class="nav-link" href="/" style="color: white; font-size: 1.0rem;">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}" style="color: white;">Tentang Sekolah</a>
+                <a class="nav-link" href="{{ route('about') }}" style="color: white; font-size: 1.0rem;">Tentang Sekolah</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem;">
                     Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
                     <a class="dropdown-item" href="{{ route('contact') }}">Kritik dan Saran</a>
+                    <a class="dropdown-item" href="{{ route('artikel') }}">Artikel</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('fasilitas') }}" style="color: white;">Fasilitas</a>
+                <a class="nav-link" href="{{ route('fasilitas') }}" style="color: white; font-size: 1.0rem;">Fasilitas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('artikel') }}" style="color: white;">Artikel</a>
+                <a class="nav-link" href="{{ route('prestasi') }}" style="color: white; font-size: 1.0rem;">Prestasi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('pengumuman') }}" style="color: white;">Pengumuman</a>
+                <a class="nav-link" href="{{ route('pengumuman') }}" style="color: white; font-size: 1.0rem;">Pengumuman</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('guru') }}" style="color: white;">Guru</a>
+                <a class="nav-link" href="{{ route('guru') }}" style="color: white; font-size: 1.0rem;">Guru</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="" style="color: white;">Agenda</a>
+                <a class="nav-link" href="#" style="color: white; font-size: 1.0rem;">Jadwal</a>
             </li>
             @auth
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="userName" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                <a class="nav-link dropdown-toggle" href="#" id="userName" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem;">
                     {{ auth()->user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
@@ -69,23 +70,3 @@
         </ul>
     </div>
 </nav>
-
-<style>
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-    }
-    .header-content > div {
-        margin-bottom: 10px;
-    }
-    .navbar-toggler {
-        margin-right: 15px;
-    }
-    .navbar-nav {
-        text-align: center;
-    }
-    .navbar-nav .nav-item {
-        margin: 5px 0;
-    }
-}
-</style>

@@ -10,13 +10,13 @@ class FasilitasController extends Controller
 {
     public function index()
     {
-    	$fasilitas = Fasilitas::with(['user'])->latest()->paginate(4);
+    	$fasilitas = Fasilitas::with(['user'])->latest()->paginate(20);
     	return view('fasilitas.index',compact('fasilitas'));
     }
 
     public function show($id)
     {
         $fasilitas = Fasilitas::findOrFail($id);
-    	return view('fasilitas.show',compact('faslitas'));
+    	return view('fasilitas.show',compact('fasilitas'));
     }
 }

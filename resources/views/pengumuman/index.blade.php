@@ -1,15 +1,15 @@
 @extends('layouts.frontend.app',[
-    'title' => 'List Pengumuman',
+'title' => 'List Pengumuman',
 ])
 @section('content')
 
 @if($pengumuman->count() > 0)
-<section class="upcoming-events section-padding-100-0 mb-5">
-    <div class="container">
+<section class="upcoming-events section-padding-100-0 mb-5" >
+    <div class="container" style="padding-top: 100px; background-color:#F8F4EC;">
         <div class="row">
             <div class="col-12">
-                <div class="section-heading">
-                    <h3>List Pengumuman</h3>
+                <div class="container-fluid " style="padding: 0 0 40px 0;">
+                    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid;  background-color: #860000; color:white;">Pengumuman</h1>
                 </div>
             </div>
         </div>

@@ -19,6 +19,8 @@ class CreatePrestasiTable extends Migration
             $table->text('deskripsi');
             $table->string('gambar', 100);
             $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

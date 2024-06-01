@@ -22,6 +22,8 @@ class CreateGuruTable extends Migration
             $table->string('pendidikan');
             $table->string('no_telephon', 20);
             $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -11,8 +11,6 @@ class Prestasi extends Model
 
     protected $table = 'prestasi';
 
-    protected $primaryKey = 'id_prestasi'; // Specify the primary key
-
     protected $fillable = [
         'judul',
         'deskripsi',
@@ -20,6 +18,11 @@ class Prestasi extends Model
         'user_id',
         'update_at',
     ];
+
+    public function user()
+    {
+    	return $this->belongsTo(User::class);
+    }
 
     public function getThumbnail()
     {

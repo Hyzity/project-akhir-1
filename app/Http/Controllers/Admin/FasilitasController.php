@@ -78,27 +78,24 @@ class FasilitasController extends Controller
         $validatedData = $request->validate([
             'nama_fasilitas' => 'required',
             'deskripsi' => 'required',
-            'foto_fasilitas' => 'required',
+            'foto_fasilitas' => 'required|image', 
         ]);
-
+    
         $validatedData['user_id'] = Auth::user()->id ?? null;
-
+    
         if ($request->hasFile('foto_fasilitas')) {
             $file = $request->file('foto_fasilitas');
             $namaFile = time() . "_" . $file->getClientOriginalName();
-            $tujuanFile = 'uploads/img/fasilitas/' . $namaFile;
-
-            $file->move(public_path('uploads/img/fasilitas/'), $namaFile);
-
-            $validatedData['foto_fasilitas'] = $tujuanFile;
+            $file->move(public_path('uploads/img/fasilitas'), $namaFile);
+    
+            $validatedData['foto_fasilitas'] = $namaFile;
         }
-
+    
         Fasilitas::create($validatedData);
-
-
+    
         return redirect()->route('admin.fasilitas.index')->with('success', 'Fasilitas berhasil disimpan');
     }
-    
+     
     
     /**
      * Display the specified resource.
@@ -115,12 +112,19 @@ class FasilitasController extends Controller
         return view('admin.fasilitas.show', compact('fasilitas'));
     }
 
-    public function destroy(Fasilitas $fasilitas)
+    public function destroy($id)
     {
+        $fasilitas = Fasilitas::findOrFail($id);
+        // Delete the file from the storage
+        $filePath = public_path('uploads/img/fasilitas/' . $fasilitas->foto_fasilitas);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
         $fasilitas->delete();
-
+    
         return redirect()->route('admin.fasilitas.index')->with('success', 'Data fasilitas berhasil dihapus');
     }
+    
 
     /**
      * Show the form for editing the specified resource.

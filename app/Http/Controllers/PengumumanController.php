@@ -10,7 +10,7 @@ class PengumumanController extends Controller
 {
     public function index()
     {
-    	$pengumuman = Pengumuman::with(['user'])->latest()->paginate(4);
+    	$pengumuman = Pengumuman::with(['user'])->latest()->paginate(20);
     	return view('pengumuman.index',compact('pengumuman'));
     }
 

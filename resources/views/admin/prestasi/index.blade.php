@@ -46,8 +46,9 @@
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                                <button onclick="return confirm('Yakin hapus ?')" type="submit" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></button>
                                             </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
