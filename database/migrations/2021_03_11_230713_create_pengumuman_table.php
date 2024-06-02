@@ -15,12 +15,11 @@ class CreatePengumumanTable extends Migration
     {
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->id();
-            $table->string('judul')->nullable();
+            $table->string('judul', 255)->nullable();
             $table->text('deskripsi')->nullable();
-            $table->string('tgl')->nullable();
-            $table->string('slug')->nullable();
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->date('tgl')->nullable();
+            $table->string('slug', 255)->nullable();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

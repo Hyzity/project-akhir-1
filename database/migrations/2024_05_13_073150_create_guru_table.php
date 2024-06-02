@@ -15,14 +15,13 @@ class CreateGuruTable extends Migration
     {
         Schema::create('guru', function (Blueprint $table) {
             $table->id();
-            $table->string('foto')->nullable(); // Kolom foto bisa bernilai null
-            $table->string('nama');
-            $table->string('bidang_keahlian');
+            $table->string('foto');
+            $table->string('nama', 255);
+            $table->string('bidang_keahlian', 255);
             $table->text('pengalaman');
-            $table->string('pendidikan');
+            $table->string('pendidikan', 255);
             $table->string('no_telephon', 20);
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

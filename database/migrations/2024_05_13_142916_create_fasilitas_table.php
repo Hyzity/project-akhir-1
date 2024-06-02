@@ -14,11 +14,10 @@ class CreateFasilitasTable extends Migration
     {
         Schema::create('fasilitas', function (Blueprint $table) {
             $table->id();
-            $table->string('deskripsi');
-            $table->string('nama_fasilitas');
-            $table->string('foto_fasilitas');
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('deskripsi', 255);
+            $table->string('nama_fasilitas', 255);
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('foto_fasilitas', 255);
 
             $table->timestamps();
         });
