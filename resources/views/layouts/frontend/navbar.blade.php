@@ -23,35 +23,37 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/" style="color: white; font-size: 1.0rem;">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}" style="color: white; font-size: 1.0rem;">Tentang Sekolah</a>
+                <a class="nav-link" href="/" style="color: white; font-size: 1.0rem;">Beranda</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem;">
-                    Menu
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem;">
+                    Profil
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item dropdown-toggle" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tentang Sekolah
+                    </a>
+                    <ul class="dropdown-menu nested-dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah</a></li>
+                        <li><a class="dropdown-item" href="{{ route('visimisi') }}">Visi & Misi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('akreditas') }}">Akreditas</a></li>
+                    </ul>
+                    <a class="dropdown-item" href="{{ route('guru') }}">Guru</a>
+                    <a class="dropdown-item" href="{{ route('prestasi') }}">Prestasi</a>
+                    <a class="dropdown-item" href="{{ route('fasilitas') }}">Fasilitas</a>
                     <a class="dropdown-item" href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
-                    <a class="dropdown-item" href="{{ route('contact') }}">Kritik dan Saran</a>
-                    <a class="dropdown-item" href="{{ route('artikel') }}">Artikel</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('fasilitas') }}" style="color: white; font-size: 1.0rem;">Fasilitas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('prestasi') }}" style="color: white; font-size: 1.0rem;">Prestasi</a>
-            </li>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pengumuman') }}" style="color: white; font-size: 1.0rem;">Pengumuman</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('guru') }}" style="color: white; font-size: 1.0rem;">Guru</a>
+                <a class="nav-link" href="#" style="color: white; font-size: 1.0rem;">Jadwal</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white; font-size: 1.0rem;">Jadwal</a>
+                <a class="nav-link" href="contact" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
             </li>
             @auth
             <li class="nav-item dropdown">
@@ -70,3 +72,34 @@
         </ul>
     </div>
 </nav>
+
+<style>
+    .navbar-custom .navbar-nav .dropdown-menu {
+        background-color: #860000;
+    }
+
+    .navbar-custom .navbar-nav .dropdown-menu .dropdown-item {
+        color: white;
+    }
+
+    .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover {
+        background-color: #6e0000;
+    }
+
+    .nested-dropdown-menu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
+
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
+</style>

@@ -38,7 +38,9 @@ require __DIR__ . '/admin.php';
 //Home
 Route::get('/',[HomeController::class,'index']);
 Route::get('/home',[HomeController::class,'index'])->name('home');
-Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
+Route::get('/visimisi',[HomeController::class,'visimisi'])->name('visimisi');
+Route::get('/akreditas',[HomeController::class,'akreditas'])->name('akreditas');
 Route::get('/ekstrakurikuler',[HomeController::class,'ekstrakurikuler'])->name('ekstrakurikuler');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 
@@ -55,6 +57,7 @@ Route::get('/pengumuman/{pengumuman:slug}',[PengumumanController::class,'show'])
 //guru
 Route::get('/guru',[GuruController::class,'index'])->name('guru');
 Route::get('/guru/show/{id}',[GuruController::class,'show'])->name('guru.show');
+// Route::get('/login',[AuthController::class,'index'])->name('login');
 
 //fasilitas
 Route::get('/fasilitas',[FasilitasController::class,'index'])->name('fasilitas');

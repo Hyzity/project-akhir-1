@@ -10,7 +10,7 @@
             <h4 class="card-title">Box Artikel</h4>
         </div>
         <div class="card-body">
-        <form method="POST" enctype="multipart/form-data" action="">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.jadwal.updateHari', $hari->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">

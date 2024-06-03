@@ -23,6 +23,7 @@ class JadwalController extends Controller
     {
         $hari = JadwalHari::where('id_kelas', $id)->get();
         $idkelas = NamaKelas::findOrFail($id);
+        $waktu =['08.00-08.35', '08.35-9.10','09.10-09-45','09.45-10.00','10.00-10.35','10.35-11.10','11.10-11.25','11.25-12.00','12.00-12.35'];
 
         // Create an associative array to store subjects for each day
         $pelajaran = [];
@@ -33,7 +34,7 @@ class JadwalController extends Controller
         }
 
         // Pass both hari and subjectsByDay to the view
-        return view('admin.jadwal.show', compact('hari', 'pelajaran', 'idkelas'));
+        return view('admin.jadwal.show', compact('hari', 'pelajaran', 'idkelas','waktu'));
     }
 
     public function createkelas()
@@ -117,5 +118,52 @@ class JadwalController extends Controller
             $hari= JadwalHari::findOrFail($id);
 
             return view('admin.jadwal.editHari', compact('hari'));
+        }
+        public function editPelajaran($id)
+        {
+            $pelajaran= MataPelajaran::findOrFail($id);
+
+            return view('admin.jadwal.editPelajaran', compact('pelajaran'));
+        }
+
+        public function updateHari(Request $request, $id)
+        {
+            $product = JadwalHari::findOrFail($id);
+            $validateData = $request->validate([
+                'nama_hari' => 'required',
+            ]);
+            $validateData['user_id'] = Auth::id();
+    
+            $product->update($validateData);
+            return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil dihapus');
+    
+        }
+        public function updatePelajaran(Request $request, $id)
+        {
+            $product = MataPelajaran::findOrFail($id);
+            $validateData = $request->validate([
+                'mata_pelajaran' => 'required', 
+            ]);
+            $validateData['user_id'] = Auth::id();
+    
+            $product->update($validateData);
+            return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil dihapus');
+    
+        }
+        public function destroyHari($id)
+        {
+           $kelas = JadwalHari::findOrFail($id);
+    
+           $kelas->delete();
+    
+            return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil dihapus');
+        }
+        public function destroyPelajaran($id)
+        {
+           $kelas = MataPelajaran::findOrFail($id);
+    
+           $kelas->delete();
+    
+            return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil dihapus');
         }
 }

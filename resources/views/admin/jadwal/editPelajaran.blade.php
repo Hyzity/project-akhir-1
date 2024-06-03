@@ -10,13 +10,13 @@
             <h4 class="card-title">Box Artikel</h4>
         </div>
         <div class="card-body">
-        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.jadwal.storePelajaran') }}">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.jadwal.updatePelajaran', $pelajaran->id) }}">
             @csrf
+            @method('PUT')
             <div class="form-group">
-                <label for="">Nama Pelajaran</label>
-                <input  type="text" name="mata_pelajaran" placeholder="" class="form-control">
+                <label for="mata_pelajaran">Mata Pelajaran</label>
+                <input  type="text" name="mata_pelajaran" placeholder="" Value = "{{ old('mata_pelajaran', $pelajaran->mata_pelajaran) }}"class="form-control">
             </div>
-            <input  type="text" name="id_hari" value="{{$id }}" class="form-control" hidden>
             <div class="card-footer">
             <button type="submit" class="btn btn-primary">UPLOAD</button>
         </div>

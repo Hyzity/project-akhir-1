@@ -20,9 +20,19 @@ class HomeController extends Controller
         ]);
     }
 
-    public function about()
+    public function visimisi()
     {
-    	return view('home.about');
+    	return view('home.visimisi');
+    }
+
+    public function akreditas()
+    {
+    	return view('home.akreditas');
+    }
+
+    public function sejarah()
+    {
+    	return view('home.sejarah');
     }
 
     public function ekstrakurikuler()

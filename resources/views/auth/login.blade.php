@@ -55,7 +55,7 @@
           </div>
           <div class="row">
             <!-- /.col -->
-            <div class="col">
+            <div class="col" style="padding-bottom: 50px;">
               <button type="submit" class="btn btn-block" style="background-color: #860000; color: white;">MASUK</button>
             </div>
             <!-- /.col -->

@@ -40,9 +40,9 @@
 
                                     <td>
                                         <div class="row ml-2">
-                                            <a href="{{ route('admin.prestasi.edit', $data->id_prestasi) }}"
+                                            <a href="#"
                                                 class="btn btn-primary btn-sm"><i class="fas fa-edit fa-fw"></i></a>
-                                            <form action="{{ route('admin.prestasi.destroy', $data->id_prestasi) }}"
+                                            <form action="#"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
