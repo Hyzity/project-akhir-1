@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="container-fluid " style="padding-bottom: 50px;">
-                    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: #860000; color:white;">Data Guru</h1>
+                    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: white;">Data Guru</h1>
                 </div>
                 <div class="row">
                 </div>
@@ -31,8 +31,8 @@
                             <h5 class="card-title" style="text-align: center;">{{ $g->nama }}</h5>
                             <p class="card-text"><strong>Bidang Keahlian:</strong> {{ $g->bidang_keahlian }}</p>
                             <p class="card-text"><strong>Pendidikan:</strong> {{ $g->pendidikan }}</p>
-                            <p class="card-text"><strong>Pengalaman:</strong> {{ $g->pengalaman }}</p>
-                            <p class="card-text"><strong>No Telepon:</strong> {{ $g->no_telephon }}</p>
+                            <p class="card-text"><strong>Tempat Lahir:</strong> {{ $g->tempat_lahir }}</p>
+                            <p class="card-text"><strong>Tanggal Lahir:</strong> {{ $g->tgl_lahir }}</p>
                         </div>
                     </div>
                 </div>

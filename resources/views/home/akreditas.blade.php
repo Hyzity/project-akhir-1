@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="container-fluid " style="padding: 200px 0 0 0;">
-    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: #860000; color:white;">Akreditas Sekolah</h1>
+    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: white;">Akreditas Sekolah</h1>
 </div>
 <div class="container" style="background-color: #F8F9D7;"><br>
         <div class="row featurette" style="background-color: white;">

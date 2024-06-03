@@ -10,7 +10,7 @@ class GuruController extends Controller
 {
     public function index()
     {
-    	$guru = Guru::with(['user'])->latest()->paginate(20);
+    	$guru = Guru::with(['user'])->latest()->paginate(50);
     	return view('guru.index',compact('guru'));
     }
 

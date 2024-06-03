@@ -4,8 +4,8 @@
 @section('content')
 
 <div class="container my-5">
-<div class="container-fluid" style="padding: 170px 0 30px 0;">
-    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: #860000; color:white;">Visi dan Misi</h1>
+<div class="container-fluid" style="padding: 150px 0 30px 0;">
+    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: white;">Visi dan Misi</h1>
 </div>
         <section id="visi-misi">
             <div class="row" style="background-color: #F8F9D7;">

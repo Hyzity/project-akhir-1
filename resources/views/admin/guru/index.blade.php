@@ -23,11 +23,10 @@
                                 <th>Foto</th>
                                 <th>Nama</th>
                                 <th>Bidang Keahlian</th>
-                                <th>Pengalaman</th>
+                                <th>tempat_lahir</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Pendidikan</th>
-                                <th>No Telepon</th>
                                 <th>Admin</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,9 +41,9 @@
                                             style="max-width: 100px;"></td> <!-- Menampilkan foto guru -->
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->bidang_keahlian }}</td>
-                                    <td>{{ $data->pengalaman }}</td>
+                                    <td>{{ $data->tempat_lahir }}</td>
+                                    <td>{{ $data->tgl_lahir }}</td>
                                     <td>{{ $data->pendidikan }}</td>
-                                    <td>{{ $data->no_telephon }}</td>
                                     <td>
                                         <div class="row ml-2">
                                             <a href="{{ route('admin.guru.edit', $data->id) }}"

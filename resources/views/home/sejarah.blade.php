@@ -3,27 +3,25 @@
 ])
 @section('content')
 <div class="container my-5">
-<div class="container-fluid" style="padding: 150px 0 20px 0;">
-    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: #860000; color:white;">Sejarah SDN 173100 Tarutung</h1>
-</div><br>
-        <div class="row">
-            <div class="col capt">
-                <p>
-                    SD Negeri 173100 Tarutung adalah sebuah sekolah SD negeri yang berlokasi di Jl. Pemuda Tarutung,
-                    Kab. Tapanuli Utara.
-                </p>
-                <p>
-                    SD negeri ini pertama kali berdiri pada tahun 1956. Sekarang SD Negeri 173100 Tarutung memakai
-                    panduan kurikulum belajar pemerintah yaitu SD 2013. SD Negeri 173100 Tarutung berada di bawah
-                    naungan kepala sekolah dengan nama Sukaratny Nainggolan dan operator sekolah Mincen Saragih.
-                </p>
-            </div>
-            <div class="col text-center">
-                <img src="img/bg/bg1.jpg" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt="Sekolah diwaktu istirahat">
-            </div>
+    <div class="container-fluid" style="padding: 150px 0 20px 0;">
+        <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: white;">Sejarah SDN 173100 Tarutung</h1>
+    </div><br>
+    <div class="row" style="padding-bottom: 50px;">
+        <div class="col capt">
+            <p>
+                SD Negeri 173100 Tarutung adalah sebuah sekolah SD negeri yang berlokasi di Jl. Pemuda Tarutung,
+                Kab. Tapanuli Utara.
+            </p>
+            <p>
+                SD negeri ini pertama kali berdiri pada tahun 1956. Sekarang SD Negeri 173100 Tarutung memakai
+                panduan kurikulum belajar pemerintah yaitu SD 2013. SD Negeri 173100 Tarutung berada di bawah
+                naungan kepala sekolah dengan nama Sukaratny Nainggolan dan operator sekolah Mincen Saragih.
+            </p>
+        </div>
+        <div class="col text-center">
+            <img src="img/bg/bg1.jpg" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt="Sekolah diwaktu istirahat">
         </div>
     </div>
-
 
     <div class="row featurette">
         <div class="col-md-6">
@@ -33,12 +31,19 @@
                     <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text>
                 </svg></iframe>
         </div>
-        <div class="col-md-6">
-            <h2 class="featurette-heading fw-normal lh-1">Lokasi</h2>
-            <p class="lead">&nbsp &nbsp lokasi yang</p>
+        <div class="col-md-6"">
+            <h2 class="featurette-heading fw-normal lh-1">Penjelasan Lokasi SD Negeri 173100 Tarutung</h2>
+            <p style="font-size: 17px;"><strong style="font-weight: 700;">Alamat:</strong><br>
+                SD Negeri 173100 Tarutung terletak di Jalan Sisingamangaraja, Kecamatan Tarutung, Kabupaten Tapanuli Utara, Provinsi Sumatera Utara, Indonesia.</p>
+            <p style="font-size: 17px;"> <strong>Koordinat GPS:</strong><br>
+                Latitude: 2.0216058<br>
+                Longitude: 98.9569023</p>
+            <p style="font-size: 17px;"><strong>Deskripsi Lokasi:</strong><br>
+                Sekolah ini berada di pusat kota Tarutung, yang merupakan ibu kota Kabupaten Tapanuli Utara. Lokasinya cukup strategis, dikelilingi oleh fasilitas umum seperti pasar, rumah sakit, dan perkantoran pemerintahan.</p>
         </div>
 
     </div>
+</div>
 
 </div>
 

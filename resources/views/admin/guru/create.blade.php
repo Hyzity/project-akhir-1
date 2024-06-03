@@ -4,7 +4,7 @@
 ])
 
 @push('css')
-<link rel="stylesheet" type="text/css" href="{{ asset('plugins/dropify') }}/dist/css/dropify.min.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('plugins/dropify/dist/css/dropify.min.css') }}">
 @endpush
 
 @section('content')
@@ -26,16 +26,16 @@
                     <input required type="text" name="bidang_keahlian" placeholder="Masukkan Bidang Keahlian" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pengalaman">Pengalaman</label>
-                    <input required type="text" name="pengalaman" placeholder="Masukkan Pengalaman" class="form-control">
+                    <label for="tempat_lahir">Tempat Lahir</label>
+                    <input required type="text" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="tgl_lahir">Tanggal Lahir</label>
+                    <input required type="date" name="tgl_lahir" placeholder="Masukkan Tanggal Lahir" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="pendidikan">Pendidikan</label>
                     <input required type="text" name="pendidikan" placeholder="Masukkan Pendidikan" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="no_telephon">Nomor Telepon</label>
-                    <input required type="text" name="no_telephon" placeholder="Masukkan Nomor Telepon" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="foto">Foto Guru</label>
@@ -53,7 +53,7 @@
 @stop
 
 @push('js')
-<script type="text/javascript" src="{{ asset('plugins/dropify') }}/dist/js/dropify.min.js"></script>
+<script type="text/javascript" src="{{ asset('plugins/dropify/dist/js/dropify.min.js') }}"></script>
 <script type="text/javascript">
     $('.dropify').dropify({
         messages: {
