@@ -8,6 +8,7 @@ use App\Models\Agenda;
 use App\Models\Artikel;
 use App\Models\Pengumuman;
 
+
 class HomeController extends Controller
 {
     public function index()
