@@ -23,6 +23,7 @@
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea required="" name="deskripsi" id="deskripsi" class="text-dark form-control summernote"></textarea>
+                        
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-sm">UPLOAD</button>

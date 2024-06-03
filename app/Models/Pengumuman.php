@@ -14,7 +14,7 @@ class Pengumuman extends Model
     protected $table = 'pengumuman';
     
     protected $fillable = [
-    	'judul','deskripsi','tgl','slug','user_id',
+    	'judul','deskripsi','tgl','user_id',
     ];
 
     public function user()

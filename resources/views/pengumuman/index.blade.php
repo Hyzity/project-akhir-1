@@ -3,7 +3,7 @@
 ])
 @section('content')
 
-@if($pengumuman->count() > 0)
+
 <section class="upcoming-events section-padding-100-0 mb-5" >
     <div class="container" style="padding-top: 100px; background-color:#F8F4EC;">
         <div class="row">
@@ -13,30 +13,39 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            @foreach($pengumuman as $pn)
-            <div class="col-12 col-md-6 col-lg-6">
-                <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
-                    <!-- Events Thumb -->
-                    <div class="events-thumb">
-                        <img src="{{ asset('img/bg') }}/pengumuman.png" alt="">
-                        <h6 class="event-date">{{ $pn->tgl }} | BY : {{ $pn->user->name }}</h6>
-                        <h4 class="event-title">{{ $pn->judul }}</h4>
+        @if($pengumuman->count() > 0)
+        <div class="row container">
+            <div class="container">
+                @php
+                    $sortedPengumuman = $pengumuman->sortByDesc('tgl');
+                @endphp
+            
+                @foreach($sortedPengumuman->values() as $index => $pn)
+                    @if($index % 4 == 0)
+                        <div class="row mb-4">
+                    @endif
+            
+                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                        <div class="card wow fadeInUp" style="width: 100%;" data-wow-delay="250ms">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $pn->judul }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $pn->tgl }}</h6>
+                                <p class="card-text">{{ $pn->deskripsi }}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <a href="{{ route('pengumuman.show',$pn->slug) }}" class="btn btn-primary col-lg">Detail</a>
+            
+                    @if(($index + 1) % 4 == 0)
+                        </div>
+                    @endif
+                @endforeach
+                @if($index % 4 != 3)
                     </div>
-                </div>
-            </div>
-            @endforeach
-
-            <div class="pagination justify-content-center">
-                {{ $pengumuman->links() }}
+                @endif
             </div>
         </div>
+        @endif
     </div>
 </section>
-@endif
 
 @stop

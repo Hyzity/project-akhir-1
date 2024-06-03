@@ -18,7 +18,6 @@ class CreatePengumumanTable extends Migration
             $table->string('judul', 255)->nullable();
             $table->text('deskripsi')->nullable();
             $table->date('tgl')->nullable();
-            $table->string('slug', 255)->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });

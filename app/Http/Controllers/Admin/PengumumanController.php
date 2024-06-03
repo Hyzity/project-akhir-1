@@ -39,9 +39,11 @@ class PengumumanController extends Controller
     public function store(Request $request)
     {
         $request->request->add([
-            'slug' => Str::slug($request->judul),
             'tgl' => date('Y-m-d'),
             'user_id' => auth()->user()->id,
+        ]);
+        $request->merge([
+            'deskripsi' => strip_tags($request->input('deskripsi'))
         ]);
         Pengumuman::create($request->all());
 
@@ -79,9 +81,11 @@ class PengumumanController extends Controller
         $this->authorize('update',$pengumuman);
 
         $request->request->add([
-            'slug' => Str::slug($request->judul),
             'tgl' => date('Y-m-d'),
             'user_id' => auth()->user()->id,
+        ]);
+        $request->merge([
+            'deskripsi' => strip_tags($request->input('deskripsi'))
         ]);
         $pengumuman->update($request->all());
            
