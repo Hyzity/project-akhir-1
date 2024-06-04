@@ -53,7 +53,7 @@
                 <a class="nav-link" href="{{ route('jadwal') }}" style="color: white; font-size: 1.0rem;">Jadwal</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact') }}" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
+                <a class="nav-link" href="{{ route('kritiksaran') }}" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
             </li>
             @auth
             <li class="nav-item dropdown">

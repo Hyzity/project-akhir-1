@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\JadwalController;
+use App\Http\Controllers\Admin\KritikSaranController;
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::name('admin.')->group(function () {

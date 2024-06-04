@@ -21,6 +21,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\KritikSaranController;
 
 use App\Http\Controllers\PrestasiHomeController;
 use App\Models\Fasilitas;
@@ -44,8 +45,8 @@ Route::get('/sejarah',[HomeController::class,'sejarah'])->name('sejarah');
 Route::get('/visimisi',[HomeController::class,'visimisi'])->name('visimisi');
 Route::get('/akreditas',[HomeController::class,'akreditas'])->name('akreditas');
 Route::get('/ekstrakurikuler',[HomeController::class,'ekstrakurikuler'])->name('ekstrakurikuler');
-Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
+// Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+// Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
 
 //Artikel
 Route::get('/artikel',[ArtikelController::class,'index'])->name('artikel');
@@ -56,6 +57,10 @@ Route::get('/artikel/{artikel:slug}',[ArtikelController::class,'show'])->name('a
 //Pengumuman
 Route::get('/pengumuman',[PengumumanController::class,'index'])->name('pengumuman');
 Route::get('/pengumuman/{pengumuman:slug}',[PengumumanController::class,'show'])->name('pengumuman.show');
+
+//kritiksaran
+Route::get('/kritiksaran', [KritikSaranController::class, 'create'])->name('kritiksaran');
+Route::post('/kritiksaran', [KritikSaranController::class, 'store'])->name('kritiksaran.store');
 
 //guru
 Route::get('/guru',[GuruController::class,'index'])->name('guru');
@@ -91,7 +96,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware' => ['auth'
 		Route::get('admin/prestasi', [PrestasiController::class, 'index'])->name('admin.prestasi.index');
 		Route::get('admin/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('admin.fasilitas.edit');
 		Route::put('/admin/pengumuman/{id}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
-
+		Route::get('/kritiksaran', [App\Http\Controllers\Admin\KritikSaranController::class, 'index'])->name('kritiksaran.index');
+		Route::delete('/kritiksaran/{id}', [App\Http\Controllers\Admin\KritikSaranController::class, 'destroy'])->name('kritiksaran.destroy');
 		
 		//Resource Controller
 		Route::resource('users','UsersController');

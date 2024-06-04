@@ -29,14 +29,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.kategori-artikel.index') }}" class="nav-link {{ Request::segment(2) == 'kategori-artikel' ? 'active' : '' }}">
-                        <i class="nav-icon far fa-circle"></i>
-                        <p>
-                            Kategori Artikel
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('admin.pengumuman.index') }}" class="nav-link {{ Request::segment(2) == 'pengumuman' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-info"></i>
                         <p>
@@ -95,6 +87,15 @@
                         <i class="nav-icon fas fa-trophy"></i>
                         <p>
                             Prestasi
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.kritiksaran.index') }}" class="nav-link {{ Request::segment(2) == 'kritiksaran' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-comment"></i>
+                        <p>
+                            Kritik & Saran
                         </p>
                     </a>
                 </li>

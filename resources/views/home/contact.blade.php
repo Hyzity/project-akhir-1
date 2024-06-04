@@ -2,7 +2,11 @@
     'title' => 'Kritik & Saran',
 ])
 @section('content')
-<section class="contact-area"  style="padding: 170px 0 0 0;">
+<div class="container my-5">
+<div class="container-fluid" style="padding: 150px 0 30px 0;">
+    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: white;">Kritik dan Saran</h1>
+</div>
+<section class="contact-area"">
     <div class="container">
     <x-alert></x-alert>
         <div class="row">

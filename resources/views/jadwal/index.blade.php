@@ -1,5 +1,5 @@
 @extends('layouts.frontend.app', [
-'title' => 'List Guru',
+'title' => 'Jadwal Kelas',
 ])
 
 @section('content')
@@ -70,7 +70,9 @@
     color: #fff; /* Warna ikon */
   }
 </style>
-<div class="container mt-5" style="padding-top: 100px;">
+<div class="container my-5">
+<div class="container-fluid" style="padding: 150px 0 30px 0;">
+    <h1 style="text-align: center; padding: 25px 0 25px 0;box-shadow: #33333323 3px 5px 2px;border: #33333345 1px solid; background-color: white;">Jadwal Kelas</h1>
   <div class="row mt-5">
     @foreach($kelas as $p)
     <div class="col-lg-3 col-5">
@@ -84,6 +86,7 @@
     </div>
     @endforeach
   </div>
+</div>
 </div>
 
 <!-- /.row -->
