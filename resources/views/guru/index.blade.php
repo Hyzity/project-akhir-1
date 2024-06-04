@@ -29,7 +29,7 @@
                         </a>
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center;">{{ $g->nama }}</h5>
-                            <p class="card-text"><strong>Bidang Keahlian:</strong> {{ $g->bidang_keahlian }}</p>
+                            <p class="card-text"><s trong>Bidang Keahlian:</strong> {{ $g->bidang_keahlian }}</p>
                             <p class="card-text"><strong>Pendidikan:</strong> {{ $g->pendidikan }}</p>
                             <p class="card-text"><strong>Tempat Lahir:</strong> {{ $g->tempat_lahir }}</p>
                             <p class="card-text"><strong>Tanggal Lahir:</strong> {{ $g->tgl_lahir }}</p>

@@ -7,8 +7,8 @@
 
 
 <div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" " >
-        <h3 style="padding-top: 150px;">{{ $guru->nama }}</h3>
-    </div>
+        <h3 style=" padding-top: 150px;">{{ $guru->nama }}</h3>
+</div>
 </div>
 
 <div class="blog-details-content section-padding-100">
@@ -21,7 +21,6 @@
                     @else
                     <img src="{{ asset('img/guru') }}/default.jpg" alt="Foto Guru" style="width: 485px; height: 503px; border-radius: 20px; border: 4px solid #860000; margin: auto;">
                     @endif
-
                 </div>
                 <div style="margin-left: 100px;">
                     <ul style="list-style-type: none; padding: 0;">

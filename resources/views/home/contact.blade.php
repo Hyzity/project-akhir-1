@@ -1,9 +1,10 @@
 @extends('layouts.frontend.app',[
-    'title' => 'Contact',
+    'title' => 'Kritik & Saran',
 ])
 @section('content')
 <section class="contact-area"  style="padding: 170px 0 0 0;">
     <div class="container">
+    <x-alert></x-alert>
         <div class="row">
             <!-- Contact Info -->
             <div class="col-12 col-lg-6">
@@ -12,7 +13,7 @@
                     <ul class="contact-list">
                         <li>
                             <h6><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> Jam Masuk</h6>
-                            <h6>9:00 WIB  - 17:00 WIB</h6>
+                            <h6>8:00 WIB  - 13:00 WIB</h6>
                         </li>
                         <li>
                             <h6><i class="fa fa-phone fa-fw" aria-hidden="true"></i> No Telp</h6>
@@ -33,7 +34,7 @@
             <div class="col-12 col-lg-6">
                 <div class="contact--info mt-50 mb-50">
                     <h4>Tulis Pesan</h4>
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('contact.store') }}">
                         <div class="row">
                             <div class="col-12 col-lg-6">
                                 <div class="form-group">

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('templates/frontend/clever') }}/img/core-img/favicon.ico">
     <title>{{ $title }}</title>
+  <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.0.1') }}/plugins/fontawesome-free/css/all.min.css">
+
     <link rel="stylesheet" href="{{ asset('templates/frontend/clever') }}/style.css">
     <!-- @include('layouts.frontend.style') -->
     <style>
@@ -79,8 +81,10 @@
         @include('layouts.frontend.navbar')
     </header>
     <!-- ##### Header Area End ##### -->
+<div class="container">    @yield('content')</div>
 
-    @yield('content')
+
+
 
     <!-- ##### Footer Area Start ##### -->
     @include('layouts.frontend.footer')

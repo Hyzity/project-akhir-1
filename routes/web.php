@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ChangePasswordController;
-use App\Http\Controllers\Admin\JadwalController;
+
 use App\Http\Controllers\Admin\UsersController;
 
 
@@ -20,6 +20,8 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\JadwalController;
+
 use App\Http\Controllers\PrestasiHomeController;
 use App\Models\Fasilitas;
 require __DIR__ . '/admin.php';
@@ -43,6 +45,7 @@ Route::get('/visimisi',[HomeController::class,'visimisi'])->name('visimisi');
 Route::get('/akreditas',[HomeController::class,'akreditas'])->name('akreditas');
 Route::get('/ekstrakurikuler',[HomeController::class,'ekstrakurikuler'])->name('ekstrakurikuler');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
 
 //Artikel
 Route::get('/artikel',[ArtikelController::class,'index'])->name('artikel');
@@ -67,6 +70,11 @@ Route::get('/fasilitas/show/{id}',[FasilitasController::class,'show'])->name('fa
 Route::get('/prestasi', [PrestasiController::class,'index'])->name('prestasi');
 
 // Route::get('',[FasilitasController::class,'index'])->name('fasilitas.show');
+// jadwal
+Route::get('/jadwal', [JadwalController::class,'index'])->name('jadwal');
+Route::get('/jadwal/showhari/{id}',[JadwalController::class, 'show'])->name('jadwal.show');
+
+
 
 //agenda
 // Route::get('/agenda',[AgendaController::class,'index'])->name('agenda');

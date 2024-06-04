@@ -15,7 +15,7 @@
     </header>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom" style="background-color: #860000; position: fixed;  width: 100%; z-index: 999; padding: 0.5rem 2rem;">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom" style="background-color: #860000; position: fixed;  width: 100%; z-index: 999; padding: 0.5rem 2rem; ">
     <a class="navbar-brand" href="/" style="color: white; font-size: 1.5rem;">SDN 173100 Tarutung</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,10 +50,10 @@
                 <a class="nav-link" href="{{ route('pengumuman') }}" style="color: white; font-size: 1.0rem;">Pengumuman</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white; font-size: 1.0rem;">Jadwal</a>
+                <a class="nav-link" href="{{ route('jadwal') }}" style="color: white; font-size: 1.0rem;">Jadwal</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
+                <a class="nav-link" href="{{ route('contact') }}" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
             </li>
             @auth
             <li class="nav-item dropdown">
