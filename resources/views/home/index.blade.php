@@ -14,7 +14,7 @@
             <h3 style="color: white;">Tapanuli Utara</h3>
             <button
                 style="background-color: transparent; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.1s ease; border-radius: 50px; margin-top: 30px; color: white; border: 1px solid white;">
-                <a style="color: white; text-decoration: none;" href="/tentangsekolah">Pelajari Lebih Lanjut <i
+                <a style="color: white; text-decoration: none;" href="/sejarah">Pelajari Lebih Lanjut <i
                         class="bi bi-arrow-right-circle"></i>
                 </a>
             </button>
