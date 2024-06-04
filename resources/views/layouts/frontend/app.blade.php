@@ -81,7 +81,7 @@
         @include('layouts.frontend.navbar')
     </header>
     <!-- ##### Header Area End ##### -->
-<div class="container">    @yield('content')</div>
+@yield('content')
 
 
 

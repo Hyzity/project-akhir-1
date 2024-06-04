@@ -30,7 +30,7 @@
                 @endif
 
                 <form method="POST" enctype="multipart/form-data"
-                    action="{{ route('admin.prestasi.update', $prestasi->id_prestasi) }}">
+                    action="{{ route('admin.prestasi.update', $prestasi->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

@@ -31,4 +31,39 @@
 
     </div>
 </section>
+<style>
+    .card-img-container {
+        overflow: hidden;
+        height: 0;
+        padding-top: 100%;
+        position: relative;
+    }
+
+    .card-img-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = document.querySelectorAll('.card');
+        let maxCardHeight = 0;
+
+        cards.forEach(card => {
+            const cardHeight = card.getBoundingClientRect().height;
+            if (cardHeight > maxCardHeight) {
+                maxCardHeight = cardHeight;
+            }
+        });
+
+        cards.forEach(card => {
+            card.style.height = maxCardHeight + 'px';
+        });
+    });
+</script>
 @stop

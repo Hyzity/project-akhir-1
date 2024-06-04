@@ -8,6 +8,7 @@ use App\Models\Agenda;
 use App\Models\Artikel;
 use App\Models\Pengumuman;
 use App\Models\KritikdanSaran;
+use App\Models\Prestasi;
 
 class HomeController extends Controller
 {
@@ -17,6 +18,7 @@ class HomeController extends Controller
             'agenda' => Agenda::latest()->take(2)->get(),
             'artikel' => Artikel::with(['user','kategoriArtikel'])->latest()->take(2)->get(),
             'pengumuman' => Pengumuman::with(['user'])->latest()->take(2)->get(),
+            'prestasi' => Prestasi::with(['user'])->latest()->take(3)->get(),
         ]);
     }
 

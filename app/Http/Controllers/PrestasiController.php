@@ -9,7 +9,7 @@ class PrestasiController extends Controller
 {
     public function index()
     {
-        $prestasi = Prestasi::with(['user'])->latest()->paginate(4);
+        $prestasi = prestasi::all();
         return view('prestasi.index', compact('prestasi'));
     }
 

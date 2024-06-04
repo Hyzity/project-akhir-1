@@ -62,34 +62,17 @@
             <div style="text-align: center; margin: -100px 0 50px 0;">
                 <h1>Prestasi Sekolah</h1>
             </div>
-            <div class="container">
                 <div class="card-container row">
+                    @foreach ($prestasi as $pres)
                     <div class="card col" style="width: 14rem; margin-right: 20px;">
-                        <img src="imag/bg/joel.jpg" class="card-img-top" alt="...">
+                        <img src="{{ asset('img/prestasi/' . $pres->gambar) }}" class="card-img-top" alt="{{ $pres->gambar }}">
                         <div class="card-body">
-                            <h5 class="card-title">- Yansen Silaen -</h5>
-                            <p class="card-text">Kejuaraan Musik Perlombaan "Music Instrument Competation Categori A" di
-                                Medan</p>
+                            <h5 class="card-title">{{ $pres->judul }}</h5>
+                            <p class="card-text">{{ $pres->deskripsi }}</p>
                         </div>
                     </div>
-
-                    <div class="card col" style="width: 14rem; margin-right: 20px;">
-                        <img src="img/bg/joel.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">- Joel Panjaitan -</h5>
-                            <p class="card-text">Kejuaraan perlombaan "Science Competation Muara Foundation"</p>
-                        </div>
-                    </div>
-
-                    <div class="card col" style="width: 14rem;">
-                        <img src="img/bg/heni.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">- Heni Cahaya Lingga -</h5>
-                            <p class="card-text">Kejuaraan perlombaan "Marturiturian" Tingkat Kabupaten Tapanuli Utara</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-            </div>
 
             <div style="padding: 50px 50px 50px 50px; font-size: 20px;">
                 <h2 style="text-align: center;font-weight: 700; margin: 0 0 25px 0;">Prestasi Akademik dan Non-Akademik</h2>
