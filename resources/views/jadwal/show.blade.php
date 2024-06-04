@@ -13,7 +13,6 @@
 
 
 
-
 @foreach($hari as $jadwal)
 
 <div class="row mt-5" style="padding-top: 100px;" >

@@ -58,5 +58,5 @@
     </div>
 </footer>
 <div style="text-align: center;">
-    <p>Copyright @2024 SD Negeri 174100. All Right Reserved.</p>
+    <p>Copyright @2024 SD Negeri 173100. All Right Reserved.</p>
 </div>
