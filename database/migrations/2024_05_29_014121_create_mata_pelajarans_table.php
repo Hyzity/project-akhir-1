@@ -17,7 +17,7 @@ class CreateMataPelajaransTable extends Migration
             $table->id();
             $table->string('mata_pelajaran');
             $table->unsignedBigInteger('id_hari');
-            $table->unsignedBigInteger('user_id')->nullable(); // Jadikan nullable agar bisa menerima NULL
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->time('jam_mulai')->nullable();
             $table->time('jam_selesai')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

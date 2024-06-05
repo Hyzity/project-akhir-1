@@ -14,7 +14,7 @@ class CreatePrestasiTable extends Migration
     public function up()
     {
         Schema::create('prestasi', function (Blueprint $table) {
-            $table->id(); // Menggunakan default primary key 'id'
+            $table->id();
             $table->string('judul', 100);
             $table->text('deskripsi');
             $table->string('gambar', 100);

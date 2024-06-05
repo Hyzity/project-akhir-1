@@ -19,7 +19,7 @@ class CreateGuruTable extends Migration
             $table->string('nama', 255);
             $table->string('bidang_keahlian', 255);
             $table->string('pendidikan', 255);
-            $table->date('tgl_lahir', 255);
+            $table->date('tgl_lahir');
             $table->string('tempat_lahir', 255);
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();

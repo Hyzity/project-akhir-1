@@ -48,12 +48,6 @@ Route::get('/ekstrakurikuler',[HomeController::class,'ekstrakurikuler'])->name('
 // Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 // Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
 
-//Artikel
-Route::get('/artikel',[ArtikelController::class,'index'])->name('artikel');
-Route::get('/artikel/search',[ArtikelController::class,'search'])->name('artikel.search');
-
-Route::get('/artikel/{artikel:slug}',[ArtikelController::class,'show'])->name('artikel.show');
-
 //Pengumuman
 Route::get('/pengumuman',[PengumumanController::class,'index'])->name('pengumuman');
 Route::get('/pengumuman/{pengumuman:slug}',[PengumumanController::class,'show'])->name('pengumuman.show');
