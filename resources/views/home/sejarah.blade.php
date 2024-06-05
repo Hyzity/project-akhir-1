@@ -1,5 +1,5 @@
 @extends('layouts.frontend.app',[
-'title' => 'sejarah',
+'title' => 'Sejarah - SDN 173100 Tarutung',
 ])
 @section('content')
 <div class="container my-5">

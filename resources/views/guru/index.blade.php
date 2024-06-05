@@ -1,5 +1,5 @@
 @extends('layouts.frontend.app', [
-'title' => 'List Guru',
+'title' => 'Guru - SDN 173100 Tarutung',
 ])
 
 @section('content')

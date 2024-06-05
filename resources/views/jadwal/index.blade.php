@@ -1,5 +1,5 @@
 @extends('layouts.frontend.app', [
-'title' => 'Jadwal Kelas',
+'title' => 'Jadwal - SDN 173100 Tarutung',
 ])
 
 @section('content')

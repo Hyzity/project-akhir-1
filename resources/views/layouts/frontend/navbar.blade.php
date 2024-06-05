@@ -56,9 +56,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('kritiksaran') }}" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
             </li>
+            @auth
+            @else
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}" style="color: white; font-size: 1.0rem;"><i class="bi bi-key"></i></a>
             </li>
+            @endauth
             @auth
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userName" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem;">
