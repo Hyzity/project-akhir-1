@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <div style="background-color: white; position: fixed; top: 0; left: 0; right: 0; padding: 0 15px; z-index: 1000;">
     <header class="header-container" style="text-align: center;">
         <div class="header-content" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
@@ -54,6 +55,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('kritiksaran') }}" style="color: white; font-size: 1.0rem;">Kritik dan Saran</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}" style="color: white; font-size: 1.0rem;"><i class="bi bi-key"></i></a>
             </li>
             @auth
             <li class="nav-item dropdown">
