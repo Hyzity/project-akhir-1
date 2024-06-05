@@ -62,17 +62,23 @@
             <div style="text-align: center; margin: -100px 0 50px 0;">
                 <h1>Prestasi Sekolah</h1>
             </div>
-                <div class="card-container row">
-                    @foreach ($prestasi as $pres)
+            <div class="card-container row">
+                @foreach ($prestasi as $pres)
                     <div class="card col" style="width: 14rem; margin-right: 20px;">
-                        <img src="{{ asset('img/prestasi/' . $pres->gambar) }}" class="card-img-top" alt="{{ $pres->gambar }}">
+                        <div class="card-img-container">
+                            <img src="{{ asset('img/prestasi/' . $pres->gambar) }}" class="card-img-top"
+                                alt="{{ $pres->gambar }}">
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $pres->judul }}</h5>
+                            <center>
+                                <h5 class="card-title">- {{ $pres->judul }} -</h5>
+                            </center>
                             <p class="card-text">{{ $pres->deskripsi }}</p>
                         </div>
                     </div>
-                    @endforeach
-                </div>
+                @endforeach
+            </div>
+
 
             <div style="padding: 50px 50px 50px 50px; font-size: 20px;">
                 <h2 style="text-align: center;font-weight: 700; margin: 0 0 25px 0;">Prestasi Akademik dan Non-Akademik</h2>
@@ -96,37 +102,40 @@
                 <div class="ps" style="text-align: center;">
                     <h1 style="color: white; padding: 25px 0;">Ekstrakurikuler</h1>
                 </div>
-                <div class="card-container row justify-content-center" style="padding: 0 0 25px 0;">
+                <div class="card-container row justify-content-center text-center" style="padding: 0 0 25px 0;">
                     <div class="col-md-3">
                         <div class="card" style="background-color: #860000; border-radius: 40px;">
-                            <img src="img/bg/ketrampilan.jpg" class="card-img-top" alt="...">
+                            <img src="img/bg/olahraga.png" alt="olahraga">
                             <div class="card-body">
                                 <center>
-                                    <h4>- Hari Spesial -</h4>
+                                    <h4 style="color: white;">- Olahraga -</h4>
                                 </center>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card" style="background-color: #860000; border-radius: 40px;">
-                            <img src="img/bg/ketrampilan.jpg" class="card-img-top" alt="">
+                            <img src="img/bg/keterampilan.jpg" alt="keterampilan">
                             <div class="card-body">
                                 <center>
-                                    <h4>- Keterampilan -</h4>
+                                    <h4 style="color: white;">- Keterampilan -</h4>
                                 </center>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card" style="background-color: #860000; border-radius: 40px;">
-                            <img src="img/bg/ketrampilan.jpg" class="card-img-top" alt="">
+                            <img src="img/bg/hariSpesial.png" alt="harispesial">
                             <div class="card-body">
                                 <center>
-                                    <h4>- Hari Spesial -</h4>
+                                    <h4 style="color: white;">- Hari Spesial -</h4>
                                 </center>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="text-center">
+                    <a href="/ekstrakurikuler" class="btngor">Tampilkan lebih lanjut</a>
                 </div>
             </div>
         </section>
@@ -174,52 +183,64 @@
         </section>
     @endif
 
-    @if ($artikel->count() > 0)
-        <!-- ##### Artikel ##### -->
-        <section class="blog-area section-padding-100-0 mb-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-heading">
-                            <h3>Artikel Terbaru</h3>
-                        </div>
-                    </div>
-                </div>
+    <style>
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 133.33%;
+            overflow: hidden;
+        }
 
-                <div class="row">
+        .card-img-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-                    @foreach ($artikel as $art)
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    {{ $art->judul }}
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-                                    <span class="badge badge-danger float-right">Author : {{ $art->user->name }}</span>
-                                </div>
-                                <div class="card-body">
-                                    <img src="{{ asset($art->getThumbnail()) }}" width="100%"
-                                        style="height: 300px; object-fit: cover; object-position: center;">
+        .card-body {
+            flex-grow: 1;
+        }
 
-                                    <div class="card-text mt-3">
-                                        {!! Str::limit($art->deskripsi) !!}
-                                    </div>
+        .btngor {
+            border: 2px solid #fff;
+            border-radius: 25px;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
 
-                                    <a href="{{ route('artikel.show', $art->slug) }}"
-                                        class="btn btn-primary btn-sm">Selengkapnya</a>
-                                </div>
-                                <div class="card-footer">
-                                    <span class="badge badge-primary float-right"></span>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="row mt-3">
-                    <a href="{{ route('artikel') }}" class="alert alert-success alert-link mx-auto mt-3">Lihat Semua
-                        Artikel</a>
-                </div>
-            </div>
-        </section>
-    @endif
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card');
+            let maxCardHeight = 0;
+
+            cards.forEach(card => {
+                const cardHeight = card.getBoundingClientRect().height;
+                if (cardHeight > maxCardHeight) {
+                    maxCardHeight = cardHeight;
+                }
+            });
+
+            cards.forEach(card => {
+                card.style.height = maxCardHeight + 'px';
+            });
+        });
+    </script>
 
 @stop

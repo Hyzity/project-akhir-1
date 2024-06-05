@@ -11,7 +11,6 @@
     <div class="">
         <div class="card">
             <div class="card-body">
-                <!-- Display validation errors -->
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -21,8 +20,6 @@
                         </ul>
                     </div>
                 @endif
-
-                <!-- Display custom error message -->
                 @if (session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}
@@ -59,7 +56,8 @@
                                             class="img-thumbnail" style="max-height: 200px;">
                                     </div>
                                     <b>*Foto lama</b>
-                                    <p>**Anda bisa mengganti gambar (jika diperlukan). Namun jika tidak, boleh di biarkan begitu saja.</p>
+                                    <p>**Anda bisa mengganti gambar (jika diperlukan). Namun jika tidak, boleh di biarkan
+                                        begitu saja.</p>
                                     <input type="hidden" name="old_foto" value="{{ $prestasi->gambar }}">
                                 @endif
                             </div>
