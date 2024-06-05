@@ -15,6 +15,9 @@
             <div class="form-group">
                 <label for="nama_kelas">Nama Kelas</label>
                 <input  type="text" name="nama_kelas" placeholder="" class="form-control">
+                @error('nama_kelas')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="card-footer">
             <button type="submit" class="btn btn-primary">UPLOAD</button>

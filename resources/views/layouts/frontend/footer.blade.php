@@ -10,7 +10,7 @@
                     </svg></h4>
             </div>
             <div>
-                <a style="font-size: 20px;" href="https://web.facebook.com/groups/815629121884022">SD Negeri 173100 Tarutung</a>
+                <a class="contact-link" style="font-size: 20px;transition: color 0.3s ease, text-decoration 0.3s ease; text-decoration: none;" href="https://web.facebook.com/groups/815629121884022">SD Negeri 173100 Tarutung</a>
             </div>
         </div>
         <div style="display: flex;">
@@ -20,7 +20,7 @@
                     </svg></h4>
             </div>
             <div>
-                <a style="font-size: 20px;" href="mailto:sdN173100Trt@gmail.com">sdN173100Trt@gmail.com</a>
+                <a class="contact-link" style="font-size: 20px;" href="mailto:sdN173100Trt@gmail.com">sdN173100Trt@gmail.com</a>
             </div>
         </div>
         <div>
@@ -32,7 +32,7 @@
                         </svg></h4>
                 </div>
                 <div>
-                    <a style="font-size: 12px;" href="">Jalan Pemuda, Tangsi, Kec. Tarutung,<br> Kabupaten Tapanuli Utara, Sumatera Utara 22411</a>
+                    <a class="contact-link" style="font-size: 12px;" href="">Jalan Pemuda, Tangsi, Kec. Tarutung,<br> Kabupaten Tapanuli Utara, Sumatera Utara 22411</a>
                 </div>
             </div>
         </div>
@@ -40,16 +40,16 @@
     <div>
         <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                 <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
-            </svg><a style="font-size: 20px;" href="{{route('sejarah')}}"> Sejarah</a></h4>
+            </svg><a class="contact-link" style="font-size: 20px;" href="{{route('sejarah')}}"> Sejarah</a></h4>
         <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                 <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
-            </svg><a style="font-size: 20px;" href="{{route('fasilitas')}}"> Fasilitas</a></h4>
+            </svg><a class="contact-link" style="font-size: 20px;" href="{{route('fasilitas')}}"> Fasilitas</a></h4>
         <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                 <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
-            </svg><a style="font-size: 20px;" href="{{route('guru')}}"> Guru</a></h4>
+            </svg><a class="contact-link" style="font-size: 20px;" href="{{route('guru')}}"> Guru</a></h4>
         <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                 <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
-            </svg><a style="font-size: 20px;" href="{{route('pengumuman')}}"> Pengumuman</a></h4>
+            </svg><a class="contact-link" style="font-size: 20px;" href="{{route('pengumuman')}}"> Pengumuman</a></h4>
     </div>
     <div>
         <img src="{{ asset('img/bg/taput.png') }}" alt="" style="width: 100px;">
@@ -60,3 +60,37 @@
 <div style="text-align: center;">
     <p>Copyright @2024 SD Negeri 173100. All Right Reserved.</p>
 </div>
+
+<script>
+        document.querySelectorAll('.contact-link, .address-link').forEach(link => {
+            link.addEventListener('mouseover', function() {
+                this.style.color = '#254336';
+                this.style.textDecoration = 'underline';
+            });
+            link.addEventListener('mouseout', function() {
+                this.style.color = 'black';
+                this.style.textDecoration = 'none';
+            });
+        });
+    </script>
+
+<style>
+        .contact-link, .address-link {
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .contact-link:hover, .address-link:hover {
+            color: #254336;
+            text-decoration: underline;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            padding-right: 15px;
+        }
+        .address-link {
+            font-size: 12px;
+        }
+    </style>

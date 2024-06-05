@@ -8,17 +8,6 @@
 @endpush
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    
-
     <div class="">
         <div class="card">
             <div class="card-body">
@@ -26,18 +15,24 @@
                     @csrf
                     <div class="form-group">
                         <label for="judul">Nama Prestasi</label>
-                        <input required type="text" name="judul" placeholder="Masukkan Nama Prestasi"
-                            class="form-control">
+                        <input type="text" name="judul" placeholder="Masukkan Nama Prestasi" class="form-control">
+                        @error('judul')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi *(Jelaskan prestasi yang telah didapatkan murid)</label>
-                        <input required type="text" name="deskripsi" placeholder="Masukkan Deskripsi"
-                            class="form-control">
+                        <input type="text" name="deskripsi" placeholder="Masukkan Deskripsi" class="form-control">
+                        @error('deskripsi')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="gambar">Foto Prestasi</label>
-                        <input type="file" name="gambar" class="dropify"
-                            data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
+                        <input type="file" name="gambar" class="dropify" data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
+                        @error('gambar')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="card-footer">
@@ -47,7 +42,6 @@
             </div>
         </div>
     </div>
-
 @stop
 
 @push('js')

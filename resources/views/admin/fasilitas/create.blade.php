@@ -8,7 +8,6 @@
 @endpush
 
 @section('content')
-
     <div class="">
         <div class="card">
             <div class="card-header">
@@ -19,17 +18,26 @@
                     @csrf
                     <div class="form-group">
                         <label for="nama_fasilitas">Nama Fasilitas</label>
-                        <input required type="text" name="nama_fasilitas" placeholder="Masukkan Nama Fasilitas"
-                            class="form-control">
+                        <input type="text" name="nama_fasilitas" placeholder="Masukkan Nama Fasilitas"
+                            class="form-control @error('nama_fasilitas') is-invalid @enderror">
+                        @error('nama_fasilitas')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea required="" name="deskripsi" id="deskripsi" class="text-dark form-control summernote"></textarea>
+                        <textarea name="deskripsi" id="deskripsi" class="text-dark form-control summernote @error('deskripsi') is-invalid @enderror"></textarea>
+                        @error('deskripsi')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="foto_fasilitas">Foto Fasilitas</label>
-                        <input type="file" name="foto_fasilitas" class="dropify"
+                        <input type="file" name="foto_fasilitas" class="dropify @error('foto_fasilitas') is-invalid @enderror"
                             data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
+                        @error('foto_fasilitas')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="card-footer">
@@ -39,8 +47,6 @@
             </div>
         </div>
     </div>
-
-
 @stop
 
 @push('js')

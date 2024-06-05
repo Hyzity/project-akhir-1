@@ -15,11 +15,14 @@
             <div class="form-group">
                 <label for="nama_hari">Nama Hari</label>
                 <input  type="text" name="nama_hari" placeholder="" class="form-control">
+                @error('nama_hari')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
-            <input  type="" name="id_kelas" placeholder="" value="{{ $id }}" class="form-control" hidden>
+            <input  type="hidden" name="id_kelas" value="{{ $id }}" class="form-control">
             <div class="card-footer">
-            <button type="submit" class="btn btn-primary">UPLOAD</button>
-        </div>
+                <button type="submit" class="btn btn-primary">UPLOAD</button>
+            </div>
         </form>
     </div>
 </div>

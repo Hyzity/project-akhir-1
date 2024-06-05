@@ -15,11 +15,14 @@
             <div class="form-group">
                 <label for="">Nama Pelajaran</label>
                 <input  type="text" name="mata_pelajaran" placeholder="" class="form-control">
+                @error('mata_pelajaran')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <input  type="text" name="id_hari" value="{{$id }}" class="form-control" hidden>
             <div class="card-footer">
-            <button type="submit" class="btn btn-primary">UPLOAD</button>
-        </div>
+                <button type="submit" class="btn btn-primary">UPLOAD</button>
+            </div>
         </form>
     </div>
 </div>
