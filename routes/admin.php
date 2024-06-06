@@ -10,8 +10,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/jadwal/showhari/{id}',[JadwalController::class, 'showhari'])->name('jadwal.showhari');
         Route::get('/jadwal/createkelas',[JadwalController::class, 'createKelas'])->name('jadwal.createKelas');
         Route::get('/jadwal/createhari/{id}',[JadwalController::class, 'createHari'])->name('jadwal.createHari');
-        Route::get('/jadwal/createpelajaran/{id}',[JadwalController::class, 'createPelajaran'])->name('jadwal.createPelajaran');
-        Route::post('/jadwal/createhari',[JadwalController::class, 'StoreHari'])->name('jadwal.storeHari');
+        Route::get('/jadwal/createpelajaran/{id}/{idkelas}',[JadwalController::class, 'createPelajaran'])->name('jadwal.createPelajaran');
+        Route::post('/jadwal/createhari',[JadwalController::class, 'storeHari'])->name('jadwal.storeHari');
         Route::post('/jadwal/createkelas',[JadwalController::class, 'storeKelas'])->name('jadwal.storeKelas');
         Route::post('/jadwal/createPelajaran',[JadwalController::class, 'storePelajaran'])->name('jadwal.storePelajaran');
         Route::get('/jadwal/destroyKelas/{id}',[JadwalController::class, 'destroyKelas'])->name('jadwal.destroyKelas');

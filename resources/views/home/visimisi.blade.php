@@ -15,7 +15,7 @@
                             <h2 class="card-title">Visi <span class="text-muted">Kami</span></h2>
                             <p>
                                 <strong>Visi:</strong> <br>
-                                Menjadi institusi terdepan yang menghasilkan tenaga kesehatan profesional, inovatif, dan beretika, berkontribusi dalam meningkatkan kualitas kesehatan masyarakat.
+                                Terwujudnya Sekolah yang Berbudaya Positif, Sehat, Ramah Anak sesuai dengan kodrat alam dan zaman peserta didik sehingga menjadi generasi penerus bangsa yang beriman, berakhlak mulia, berpengetahuan luas, kreatif, berwawasan global.
                             </p>
                         </div>
                     </div>
@@ -27,11 +27,11 @@
                             <p>
                                 <strong>Misi:</strong> <br>
                             <ul>
-                                <li>1. Menyelenggarakan pendidikan kesehatan yang berkualitas dan berorientasi pada kebutuhan masyarakat.</li>
-                                <li>2. Melakukan penelitian yang inovatif untuk pengembangan ilmu pengetahuan dan teknologi di bidang kesehatan.</li>
-                                <li>3. Mengabdikan ilmu dan keterampilan kepada masyarakat melalui layanan kesehatan yang profesional.</li>
-                                <li>4. Membangun jejaring kerjasama dengan berbagai pihak untuk meningkatkan kualitas pendidikan, penelitian, dan pengabdian kepada masyarakat.</li>
-                                <li>5. Mengembangkan sumber daya manusia yang kompeten, berkarakter, dan memiliki jiwa kepemimpinan.</li>
+                                <li>1. Mewujudkan peserta didik yang berbudaya positif dengan menciptakan lingkungan belajar yang religius, nyaman, efektif, kreatif, berwawasan global, mandiri, gotong royong.</li>
+                                <li>2. Mewujudkan sekolah sehat, berbhinneka, aman dan menyenangkan. </li>
+                                <li>3. Mewujudkan kesempatan partisipasi daru peserta didik untuk berprestasi akademik dan non akademik. </li>
+                                <li>4. Mendukung peningkatan kompetensi guru dengan megikuti pelatihan dan pengembangan profesional, memberkan penghargaan dan membuka kesempatan mengembangkan karir.</li>
+                                <li>5. Membangun komunikasi efektif untuk program perlibatan sekolah dengan orang tua, masyarakan dan alumni.</li>
                             </ul>
                             </p>
                         </div>

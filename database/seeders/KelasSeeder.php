@@ -14,9 +14,13 @@ class KelasSeeder extends Seeder
      */
     public function run()
     {
-        NamaKelas::create([
-            'nama_kelas' => '12a',
-            'user_id' => '1',
-    ]);
+        $kelas = ['1a', '1b', '2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '6a', '6b'];
+
+        foreach ($kelas as $nama_kelas) {
+            NamaKelas::create([
+                'nama_kelas' => strtoupper($nama_kelas),
+                'user_id' => '1',
+            ]);
+        }
     }
 }

@@ -10,7 +10,7 @@
                     </svg></h4>
             </div>
             <div>
-                <a class="contact-link" style="font-size: 20px;transition: color 0.3s ease, text-decoration 0.3s ease; text-decoration: none;" href="https://web.facebook.com/groups/815629121884022">SD Negeri 173100 Tarutung</a>
+                <a class="contact-link" style="font-size: 20px;transition: color 0.3s ease, text-decoration 0.3s ease; text-decoration: none;" href="https://web.facebook.com/groups/815629121884022">SDN 173100 TARUTUNG & ALUMNI</a>
             </div>
         </div>
         <div style="display: flex;">
@@ -32,7 +32,7 @@
                         </svg></h4>
                 </div>
                 <div>
-                    <a class="contact-link" style="font-size: 12px;" href="">Jalan Pemuda, Tangsi, Kec. Tarutung,<br> Kabupaten Tapanuli Utara, Sumatera Utara 22411</a>
+                    <a class="contact-link" style="font-size: 12px;" href="https://www.google.com/maps?ll=2.021606,98.959477&z=16&t=m&hl=en&gl=ID&mapclient=embed&cid=605026680598337864">Jalan Pemuda, Tangsi, Kec. Tarutung,<br> Kabupaten Tapanuli Utara, Sumatera Utara 22411</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
     </div>
 </footer>
 <div style="text-align: center;">
-    <p>Copyright @2024 SD Negeri 173100. All Right Reserved.</p>
+    <p>Copyright ©2024 SD Negeri 173100. All Right Reserved.</p>
 </div>
 
 <script>

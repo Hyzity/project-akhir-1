@@ -145,7 +145,7 @@
     </div>
 
     @if ($pengumuman->count() > 0)
-        <section class="upcoming-events section-padding-100-0">
+        <section class="upcoming-events">
             <div class="container">
                 <div class="row">
                     <div class="col-12">

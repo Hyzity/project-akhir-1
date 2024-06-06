@@ -14,31 +14,32 @@ class JadwalHariSeeder extends Seeder
      */
     public function run()
     {
-        JadwalHari::create([
-            'nama_hari' => 'senin',
-            'id_kelas' => '1',
-            'user_id' => '1',
-        ]);
-        JadwalHari::create([
-            'nama_hari' => 'selasa',
-            'id_kelas' => '1',
-            'user_id' => '1',
-        ]);
-        JadwalHari::create([
-            'nama_hari' => 'rabu',
-            'id_kelas' => '1',
-            'user_id' => '1',
-        ]);
-        JadwalHari::create([
-            'nama_hari' => 'kamis',
-            'id_kelas' => '1',
-            'user_id' => '1',
-        ]);
-        JadwalHari::create([
-            'nama_hari' => 'jumat',
-            'id_kelas' => '1',
-            'user_id' => '1',
-    ]);
-
+        for ($i = 1; $i <= 12; $i++) {
+            JadwalHari::create([
+                'nama_hari' => 'senin',
+                'id_kelas' => $i,
+                'user_id' => '1',
+            ]);
+            JadwalHari::create([
+                'nama_hari' => 'selasa',
+                'id_kelas' => $i,
+                'user_id' => '1',
+            ]);
+            JadwalHari::create([
+                'nama_hari' => 'rabu',
+                'id_kelas' => $i,
+                'user_id' => '1',
+            ]);
+            JadwalHari::create([
+                'nama_hari' => 'kamis',
+                'id_kelas' => $i,
+                'user_id' => '1',
+            ]);
+            JadwalHari::create([
+                'nama_hari' => 'jumat',
+                'id_kelas' => $i,
+                'user_id' => '1',
+            ]);
+        }
     }
 }

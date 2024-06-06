@@ -27,11 +27,11 @@
                 <a class="nav-link" href="/" style="color: white; font-size: 1.0rem;">Beranda</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem;">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 1.0rem; cursor: pointer;">
                     Profil
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item dropdown-toggle" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-item dropdown-toggle" id="aboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
                         Tentang Sekolah
                     </a>
                     <ul class="dropdown-menu nested-dropdown-menu" aria-labelledby="aboutDropdown">
@@ -39,12 +39,13 @@
                         <li><a class="dropdown-item" href="{{ route('visimisi') }}">Visi & Misi</a></li>
                         <li><a class="dropdown-item" href="{{ route('akreditas') }}">Akreditas</a></li>
                     </ul>
-                    <a class="dropdown-item" href="{{ route('guru') }}">Guru</a>
-                    <a class="dropdown-item" href="{{ route('prestasi') }}">Prestasi</a>
-                    <a class="dropdown-item" href="{{ route('fasilitas') }}">Fasilitas</a>
-                    <a class="dropdown-item" href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
+                    <a class="dropdown-item" href="{{ route('guru') }}" style="cursor: pointer;">Guru</a>
+                    <a class="dropdown-item" href="{{ route('prestasi') }}" style="cursor: pointer;">Prestasi</a>
+                    <a class="dropdown-item" href="{{ route('fasilitas') }}" style="cursor: pointer;">Fasilitas</a>
+                    <a class="dropdown-item" href="{{ route('ekstrakurikuler') }}" style="cursor: pointer;">Ekstrakurikuler</a>
                 </div>
             </li>
+
 
 
             <li class="nav-item">

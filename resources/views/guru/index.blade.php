@@ -10,7 +10,6 @@
                 <div class="container-fluid" style="padding-bottom: 50px;">
                     <h1 style="text-align: center; padding: 25px 0; box-shadow: #33333323 3px 5px 2px; border: #33333345 1px solid; background-color: white;">Data Guru</h1>
                 </div>
-                <div class="row">
                 </div>
             </div>
 
@@ -26,14 +25,17 @@
                                 <img src="{{ asset('img/guru/default.jpg') }}" class="card-img-top" alt="Guru Thumbnail">
                                 @endif
                             </div>
+                            <!-- <div class="col-md-3">
+                        <a href="{{ route('guru.show', $g->id) }}">
+                            <div class="card mb-3 hover-effect" style="transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #ddd;">
+                                <div class="card-img-container">
+                                    <img class="card-img-top" src="{{ asset('uploads/img/guru/' . $g->foto) }}"
+                                        alt="Gambar Guru">
+                                </div> -->
+                            <div class="card-body">
+                                <h6 class="card-title" style="text-align: center;">{{ $g->nama }}</h6>
+                            </div>
                         </a>
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">{{ $g->nama }}</h5>
-                            <p class="card-text"><strong>Bidang Keahlian:</strong> {{ $g->bidang_keahlian }}</p>
-                            <p class="card-text"><strong>Pendidikan:</strong> {{ $g->pendidikan }}</p>
-                            <p class="card-text"><strong>Tempat Lahir:</strong> {{ $g->tempat_lahir }}</p>
-                            <p class="card-text"><strong>Tanggal Lahir:</strong> {{ $g->tgl_lahir }}</p>
-                        </div>
                     </div>
                 </div>
                 @empty

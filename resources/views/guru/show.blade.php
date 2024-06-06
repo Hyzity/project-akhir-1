@@ -6,12 +6,11 @@
 
 
 
-<div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" " >
-        <h3 style=" padding-top: 150px;">{{ $guru->nama }}</h3>
-</div>
+<div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3 height-400">
+        <h3 style="padding-top: 150px;">{{ $guru->nama }}</h3>
 </div>
 
-<div class="blog-details-content section-padding-100">
+<div class="blog-details-content" style="padding: 50px;">
     <div class="container">
         <div style="position: relative; width: 1131px; height: 505.4px; filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); background-color: white; border-radius: 20px;">
             <div style="display: flex; height: 100%; align-items: center; background-color: #860000; border-radius: 20px;">

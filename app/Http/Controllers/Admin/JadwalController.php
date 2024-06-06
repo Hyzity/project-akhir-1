@@ -68,13 +68,13 @@ class JadwalController extends Controller
 
         $validate['user_id'] = Auth::user()->id;
         JadwalHari::create($validate);
-        return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil disimpan');
+        return redirect()->route('admin.jadwal.showhari',$validate['id_kelas'] )->with('success', 'Data berhasil disimpan');
     }
 
-    public function createPelajaran($id)
+    public function createPelajaran($id, $idkelas)
     {
 
-        return view('admin.jadwal.createPelajaran', compact('id'));
+        return view('admin.jadwal.createPelajaran', compact('id','idkelas'));
     }
     public function storePelajaran(Request $request)
     {
@@ -82,10 +82,11 @@ class JadwalController extends Controller
             'mata_pelajaran' => 'required',
             'id_hari' => 'required'
         ]);
+        $idkelas = $request['id_kelas'];
 
         $validate['user_id'] = Auth::user()->id;
         MataPelajaran::create($validate);
-        return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil disimpan');
+        return redirect()->route('admin.jadwal.showhari', $idkelas)->with('success', 'Data berhasil disimpan');
     }
     public function destroyKelas($id)
     {

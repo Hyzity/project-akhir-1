@@ -17,6 +17,7 @@
                 @enderror
             </div>
             <input  type="text" name="id_hari" value="{{$id }}" class="form-control" hidden>
+            <input  type="text" name="id_kelas" value="{{$idkelas}}" class="form-control" hidden>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">UPLOAD</button>
             </div>
