@@ -20,7 +20,7 @@
                     </svg></h4>
             </div>
             <div>
-                <a class="contact-link" style="font-size: 20px;" href="mailto:sdN173100Trt@gmail.com">sdN173100Trt@gmail.com</a>
+                <a class="contact-link" style="font-size: 20px;" href="mailto:sd173100tarutung@gmail.com">sd173100tarutung@gmail.com</a>
             </div>
         </div>
         <div>
