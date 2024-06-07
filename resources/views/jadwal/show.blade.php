@@ -6,6 +6,12 @@
 
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/dropify/dist/css/dropify.min.css') }}">
+<style>
+    .card-border {
+        border: 1px solid #33333345;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    }
+</style>
 @endpush
 
 <div class="container">
@@ -17,7 +23,7 @@
     <div class="row mt-5">
         @foreach($hari as $index => $jadwal)
         <div class="col-md-6">
-            <div class="card">
+            <div class="card card-border">
                 <div class="card-body table-responsive" style="margin-top: 20px;">
                     <h2 style="margin: 0; text-transform: capitalize;">{{ $jadwal->nama_hari }}</h2>
                     <table id="dataTable{{ $index }}" class="table table-bordered table-hover">
