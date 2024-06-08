@@ -39,10 +39,6 @@
                     <input value="{{ $guru->pendidikan }}" required type="text" name="pendidikan" placeholder="Masukkan Pendidikan" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="no_telephon">Nomor Telepon</label>
-                    <input value="{{ $guru->no_telephon }}" required type="text" name="no_telephon" placeholder="Masukkan Nomor Telepon" class="form-control">
-                </div>
-                <div class="form-group">
                     <label for="foto">Foto Guru</label>
                     <input type="file" name="foto" class="dropify" data-default-file="{{ asset('uploads/img/guru/' . $guru->foto) }}" data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
                 </div>

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{ asset('templates/frontend/clever') }}/img/core-img/favicon.ico">
+    <link rel="icon" href="{{ asset('templates/frontend/clever') }}/img/core-img/logo.ico">
     <title>{{ $title }}</title>
   <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.0.1') }}/plugins/fontawesome-free/css/all.min.css">
 

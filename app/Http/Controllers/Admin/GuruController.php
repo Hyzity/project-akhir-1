@@ -78,9 +78,13 @@ class GuruController extends Controller
             'tempat_lahir' => 'required',
             'tgl_lahir' => 'required|date',
             'pendidikan' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         try {
+            $path = 'guru';
+            $filename = $this->uploadService->imageUpload($path);
+
             $guru->update([
                 'nama' => $request->nama,
                 'bidang_keahlian' => $request->bidang_keahlian,
@@ -88,7 +92,9 @@ class GuruController extends Controller
                 'tgl_lahir' => $request->tgl_lahir,
                 'pendidikan' => $request->pendidikan,
                 'user_id' => Auth::id(),
+                'foto' => $filename,
             ]);
+
 
             return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil diperbarui');
         } catch (\Exception $e) {
