@@ -15,7 +15,7 @@
             <p class="lead">Ekstrakurikuler Peraturan Baris Berbaris (PBB) di SD Negeri 173100 Tarutung adalah program yang dirancang untuk melatih kedisiplinan, kerjasama, dan ketangkasan siswa melalui kegiatan baris-berbaris. Kegiatan ini tidak hanya mengajarkan keterampilan teknis dalam baris-berbaris tetapi juga membentuk karakter siswa yang tangguh dan disiplin.</p>
         </div>
         <div class="col-md-3 order-md-1">
-            <img src="img/bg/olahraga.png" <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <img src="img/bg/baris.jpg" <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
             <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text></svg>
         </div>
     </div>
