@@ -16,19 +16,20 @@
                         <ul class="contact-list">
                             <li>
                                 <h6><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> Jam Masuk</h6>
-                                <h6>8:00 WIB - 13:00 WIB</h6>
+                                <h6>8:00 WIB - 12:35 WIB</h6>
                             </li>
                             <li>
                                 <h6><i class="fa fa-phone fa-fw" aria-hidden="true"></i> No Telp</h6>
-                                <h6>+1 123 321 456 654</h6>
+                                <h6>085275688596
+                                </h6>
                             </li>
                             <li>
                                 <h6><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Email</h6>
-                                <h6>sd1trt@gmail.com</h6>
+                                <h6>sd173100tarutung@gmail.com</h6>
                             </li>
                             <li>
                                 <h6><i class="fa fa-map-pin fa-fw" aria-hidden="true"></i> Alamat</h6>
-                                <h6>Tarutung</h6>
+                                <h6>Jalan Pemuda, Kec. Tarutung,</h6>
                             </li>
                         </ul>
                     </div>

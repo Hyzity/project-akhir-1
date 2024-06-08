@@ -72,7 +72,7 @@
             <p class="lead">Ekstrakurikuler catur di SD Negeri 173100 Tarutung adalah program kegiatan di luar jam pelajaran yang bertujuan untuk mengembangkan kemampuan berpikir kritis dan strategis siswa melalui permainan catur. Catur adalah permainan yang sangat baik untuk melatih kecerdasan, kesabaran, dan ketekunan siswa.</p>
         </div>
         <div class="col-md-3 order-md-1">
-            <img src="img/bg/hariSpesial.png" <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <img src="img/bg/catur.png" <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
             <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text></svg>
         </div>
     </div>

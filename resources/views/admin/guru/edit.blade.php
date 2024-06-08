@@ -1,6 +1,6 @@
 @extends('layouts.backend.app', [
-    'title' => 'Edit Guru',
-    'contentTitle' => 'Edit Guru',
+'title' => 'Edit Guru',
+'contentTitle' => 'Edit Guru',
 ])
 
 @push('css')
@@ -11,9 +11,6 @@
 
 <div class="">
     <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Box Guru</h4>
-        </div>
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data" action="{{ route('admin.guru.update', $guru->id) }}">
                 @csrf
