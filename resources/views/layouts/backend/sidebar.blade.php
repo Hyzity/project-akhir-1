@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         <img src="{{ asset('img/icons') }}/sd1.png" alt="laravel Logo" class="brand-image elevation-3">
-        <span class="brand-text font-weight-light">Admin SD1Trt</span>
+        <span class="brand-text font-weight-light">SDN 173100 Tarutung</span>
     </a>
 
     <!-- Sidebar -->
