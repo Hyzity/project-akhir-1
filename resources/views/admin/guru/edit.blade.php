@@ -1,6 +1,6 @@
 @extends('layouts.backend.app', [
-'title' => 'Edit Guru',
-'contentTitle' => 'Edit Guru',
+    'title' => 'Edit Guru',
+    'contentTitle' => 'Edit Guru',
 ])
 
 @push('css')
@@ -38,6 +38,13 @@
                 <div class="form-group">
                     <label for="foto">Foto Guru</label>
                     <input type="file" name="foto" class="dropify" data-default-file="{{ asset('uploads/img/guru/' . $guru->foto) }}" data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select name="status" class="form-control">
+                        <option value="aktif" {{ $guru->status == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                        <option value="non_aktif" {{ $guru->status == 'non_aktif' ? 'selected' : '' }}>Non Aktif</option>
+                    </select>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">UPDATE</button>

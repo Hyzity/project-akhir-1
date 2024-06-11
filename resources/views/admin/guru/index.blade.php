@@ -26,7 +26,8 @@
                                 <th>tempat_lahir</th>
                                 <th>Tanggal Lahir</th>
                                 <th>Pendidikan</th>
-                                <th>Admin</th>
+                                <th>status</th>
+                                <th>edit status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,17 +45,11 @@
                                     <td>{{ $data->tempat_lahir }}</td>
                                     <td>{{ $data->tgl_lahir }}</td>
                                     <td>{{ $data->pendidikan }}</td>
+                                    <td>{{ $data->status }}</td>
                                     <td>
                                         <div class="row ml-2">
                                             <a href="{{ route('admin.guru.edit', $data->id) }}"
                                                 class="btn btn-primary btn-sm"><i class="fas fa-edit fa-fw"></i></a>
-                                            <form method="POST" action="{{ route('admin.guru.destroy', $data->id) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button onclick="return confirm('Yakin hapus ?')" type="submit"
-                                                    class="btn btn-danger btn-sm ml-2"><i
-                                                        class="fas fa-trash fa-fw"></i></button>
-                                            </form>
                                         </div>
                                     </td>
                                 </tr>

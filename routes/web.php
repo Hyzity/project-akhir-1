@@ -58,6 +58,7 @@ Route::post('/kritiksaran', [KritikSaranController::class, 'store'])->name('krit
 
 //guru
 Route::get('/guru',[GuruController::class,'index'])->name('guru');
+Route::get('/guru/nonAktif',[GuruController::class,'nonAktif'])->name('guru.nonAktif');
 Route::get('/guru/show/{id}',[GuruController::class,'show'])->name('guru.show');
 // Route::get('/login',[AuthController::class,'index'])->name('login');
 

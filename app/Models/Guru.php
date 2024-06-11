@@ -18,15 +18,17 @@ class Guru extends Model
         'pendidikan',
         'tempat_lahir',
         'foto',
-        'user_id'
+        'user_id',
+        'status'
     ];
 
     public function user()
     {
-    	return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
+
     public function getThumbnail()
     {
-    	return 'uploads/img/guru/'.$this->foto;
+        return 'uploads/img/guru/'.$this->foto;
     }
 }

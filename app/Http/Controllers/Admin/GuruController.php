@@ -33,17 +33,19 @@ class GuruController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
+            'nama' => 'required|min:8|max:60',
             'bidang_keahlian' => 'required',
-            'tempat_lahir' => 'required',
+            'tempat_lahir' => 'required|min:8',
             'tgl_lahir' => 'required|date',
             'pendidikan' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required|in:aktif,non_aktif', // Validation rule for status
         ]);
-
+    
         try {
             $path = 'guru';
             $filename = $this->uploadService->imageUpload($path);
-
+    
             $guru = new Guru();
             $guru->nama = $request->input('nama');
             $guru->bidang_keahlian = $request->input('bidang_keahlian');
@@ -51,8 +53,9 @@ class GuruController extends Controller
             $guru->tgl_lahir = $request->input('tgl_lahir');
             $guru->pendidikan = $request->input('pendidikan');
             $guru->foto = $filename;
+            $guru->status = $request->input('status'); // Assign status
             $guru->save();
-
+    
             return redirect()->route('admin.guru.index')->with('success', 'Guru berhasil ditambahkan');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => $e->getMessage()]);
@@ -71,44 +74,43 @@ class GuruController extends Controller
     }
 
     public function update(Request $request, Guru $guru)
-    {
-        $request->validate([
-            'nama' => 'required',
-            'bidang_keahlian' => 'required',
-            'tempat_lahir' => 'required',
-            'tgl_lahir' => 'required|date',
-            'pendidikan' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+{
+    $request->validate([
+        'nama' => 'required|min:8|max:60',
+        'bidang_keahlian' => 'required',
+        'tempat_lahir' => 'required|min:8',
+        'tgl_lahir' => 'required|date',
+        'pendidikan' => 'required',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'status' => 'required|in:aktif,non_aktif', // Validation rule for status
+    ]);
+
+    try {
+        $path = 'guru';
+        $filename = $guru->foto; // Keep the old filename if no new image is uploaded
+
+        // Check if a new image is uploaded
+        if ($request->hasFile('image')) {
+            $filename = $this->uploadService->imageUpload($path);
+        }
+
+        $guru->update([
+            'nama' => $request->nama,
+            'bidang_keahlian' => $request->bidang_keahlian,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tgl_lahir' => $request->tgl_lahir,
+            'pendidikan' => $request->pendidikan,
+            'user_id' => Auth::id(),
+            'foto' => $filename,
+            'status' => $request->status, // Assign status
         ]);
 
-        try {
-            $path = 'guru';
-            $filename = $this->uploadService->imageUpload($path);
-
-            $guru->update([
-                'nama' => $request->nama,
-                'bidang_keahlian' => $request->bidang_keahlian,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tgl_lahir' => $request->tgl_lahir,
-                'pendidikan' => $request->pendidikan,
-                'user_id' => Auth::id(),
-                'foto' => $filename,
-            ]);
-
-
-            return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil diperbarui');
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui data guru: ' . $e->getMessage()]);
-        }
+        return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil diperbarui');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui data guru: ' . $e->getMessage()]);
     }
+}
 
-    public function destroy(Guru $guru)
-    {
-        try {
-            $guru->delete();
-            return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil dihapus');
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Terjadi kesalahan saat menghapus data guru: ' . $e->getMessage()]);
-        }
-    }
+
+
 }

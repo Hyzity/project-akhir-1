@@ -22,6 +22,7 @@ class CreateGuruTable extends Migration
             $table->date('tgl_lahir');
             $table->string('tempat_lahir', 255);
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->enum('status', ['aktif', 'non_aktif']);
             $table->timestamps();
         });
     }

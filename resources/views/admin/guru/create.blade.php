@@ -62,6 +62,17 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select name="status" class="form-control @error('status') is-invalid @enderror">
+                        <option value="">Pilih Status</option>
+                        <option value="aktif" {{ old('status') == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                        <option value="non_aktif" {{ old('status') == 'non_aktif' ? 'selected' : '' }}>Non Aktif</option>
+                    </select>
+                    @error('status')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">UPLOAD</button>
@@ -86,4 +97,3 @@
     });
 </script>
 @endpush
-    

@@ -111,7 +111,7 @@ class JadwalController extends Controller
         $validateData['user_id'] = Auth::id();
 
         $product->update($validateData);
-        return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('admin.jadwal.index')->with('success', 'Data berhasil diperbarui');
 
     }
         public function editHari($id)
