@@ -17,7 +17,6 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" style="background-color: #860000; position: fixed;  width: 100%; z-index: 999; padding: 0.5rem 2rem; ">
-    <a class="navbar-brand" href="/" style="color: white; font-size: 1.5rem;">SDN 173100 Tarutung</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -60,7 +59,7 @@
             @auth
             @else
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}" style="color: white; font-size: 1.0rem;"><i class="bi bi-key"></i></a>
+                <a class="nav-link" href="{{ route('login') }}" style="color: white; font-size: 1.0rem;">Masuk</a>
             </li>
             @endauth
             @auth

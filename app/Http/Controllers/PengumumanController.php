@@ -16,6 +16,7 @@ class PengumumanController extends Controller
 
     public function show(Pengumuman $pengumuman)
     {
-    	return view('pengumuman.show',compact('pengumuman'));
+        $list_pengumuman = Pengumuman::orderBy('created_at', 'desc')->get();
+    	return view('pengumuman.show',compact('pengumuman', 'list_pengumuman'));
     }
 }

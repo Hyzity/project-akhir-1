@@ -50,7 +50,7 @@ Route::get('/ekstrakurikuler',[HomeController::class,'ekstrakurikuler'])->name('
 
 //Pengumuman
 Route::get('/pengumuman',[PengumumanController::class,'index'])->name('pengumuman');
-Route::get('/pengumuman/{pengumuman:slug}',[PengumumanController::class,'show'])->name('pengumuman.show');
+Route::get('/pengumuman/{pengumuman:id}',[PengumumanController::class,'show'])->name('pengumuman.show');
 
 //kritiksaran
 Route::get('/kritiksaran', [KritikSaranController::class, 'create'])->name('kritiksaran');
