@@ -23,11 +23,17 @@
                         <label for="judul">Judul</label>
                         <input value="{{ $pengumuman->judul }}" required="" type="text" name="judul" placeholder=""
                             class="form-control title">
+                            @error('judul')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea required="" name="deskripsi" id="deskripsi" class="text-dark form-control summernote">{!! $pengumuman->deskripsi !!}</textarea>
+                        <textarea name="deskripsi" id="deskripsi" class="text-dark form-control">{!! $pengumuman->deskripsi !!}</textarea>
                     </div>
+                    @error('deskripsi')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
                     </div>

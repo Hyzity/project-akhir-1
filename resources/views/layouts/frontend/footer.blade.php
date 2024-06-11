@@ -1,4 +1,4 @@
-<hr style="border: 1px solid black; width: 100%; margin-bottom: 20px;">
+<hr style="border: 1px solid black; width: 99.9%; margin-bottom: 20px;">
 
 <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; padding: 40px;">
 

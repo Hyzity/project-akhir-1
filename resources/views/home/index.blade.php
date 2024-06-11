@@ -54,32 +54,7 @@
     </section>
 
 
-    {{-- <div class="regular-page-area section-padding-100 mt-5 mb-4">
-        <div class="container">
-            <div style="text-align: center; margin: -100px 0 50px 0;">
-                <h1>Prestasi Sekolah</h1>
-            </div>
-            <div class="card-container row">
-                @foreach ($prestasi as $pres)
-                    <div class="card col" style="width: 14rem; margin-right: 20px;">
-                        <div class="card-img-container">
-                            <img src="{{ asset('img/prestasi/' . $pres->gambar) }}" class="card-img-top"
-                                alt="{{ $pres->gambar }}">
-                        </div>
-                        <div class="card-body">
-                            <center>
-                                <h5 class="card-title">- {{ $pres->judul }} -</h5>
-                            </center>
-                            <p class="card-text">{{ $pres->deskripsi }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-        </div>
-    </div> --}}
-
-    <section class="upcoming-events">
+    <section class="upcoming-events space">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -96,23 +71,22 @@
                     @endphp
 
                     <div class="row d-flex flex-warp justify-content-center">
-                        @foreach ($sortedPengumuman as $index => $pn)   
-                        
+                        @foreach ($sortedPengumuman as $index => $pn)
                             <div class="col">
                                 <a href="{{ route('pengumuman.show', $pn->id) }}">
-                                <div class="card border-dark mb-3 wow fadeInUp card-center">
-                                    <div class="card-body text-dark">
-                                        <h5 class="card-title">{{ $pn->judul }}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">{{ $pn->tgl }}</h6>
-                                        <button type="button" class="btn btn-success">Selengkapnya</button>
+                                    <div class="card border-dark mb-3 wow fadeInUp card-center">
+                                        <div class="card-body text-dark">
+                                            <h5 class="card-title">{{ $pn->judul }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">{{ $pn->tgl }}</h6>
+                                            <button type="button" class="btn btn-success">Selengkapnya</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
                             </div>
                         @endforeach
                     </div>
 
-                    <div class="row">
+                    <div class="row space">
                         <a href="{{ route('pengumuman') }}" class="alert alert-success alert-link mx-auto">Lihat Semua
                             Pengumuman</a>
                     </div>
@@ -120,26 +94,65 @@
         </div>
     </section>
 
-    <style>
+    <section class="upcoming-events">
+        <div class="container">
+            <div class="section-heading">
+                <h3>Prestasi Sekolah</h3>
+            </div>
+            <div class="row d-flex flex-warp justify-content-center">
+                @foreach ($prestasi as $pres)
+                    <div class="col-md-3 wow fadeInUp" style="width: 100%; height: 100%;">
+                        <div class="card mb-3">
+                            <a href="{{ route('prestasi.show', $pres->id) }}">
+                                <div class="card-img-container">
+                                    <img class="card-img-top" src="{{ asset('img/prestasi/' . $pres->gambar) }}"
+                                        alt="Gambar Prestasi">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $pres->judul }}</h5>
+                                    <hr>
+                                    <p class="card-text">
+                                        {!! Str::limit($pres->deskripsi) !!}
+                                    </p>
+                                    <button type="button" class="btn btn-success">Selengkapnya</button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row space">
+                <a href="{{ route('prestasi') }}" class="alert alert-success alert-link mx-auto">Lihat Semua
+                    Prestasi</a>
+            </div>
 
+        </div>
+    </section>
+
+    <style>
+        .space {
+            padding: 30px;
+        }
+
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%;
+            /* 3:4 aspect ratio */
+            overflow: hidden;
+        }
+
+        .card-img-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
     </style>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const cards = document.querySelectorAll('.card');
-            let maxCardHeight = 0;
 
-            cards.forEach(card => {
-                const cardHeight = card.getBoundingClientRect().height;
-                if (cardHeight > maxCardHeight) {
-                    maxCardHeight = cardHeight;
-                }
-            });
-
-            cards.forEach(card => {
-                card.style.height = maxCardHeight + 'px';
-            });
-        });
-    </script>
 
 @stop

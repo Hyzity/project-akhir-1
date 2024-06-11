@@ -68,6 +68,8 @@ Route::get('/fasilitas/show/{id}',[FasilitasController::class,'show'])->name('fa
 
 //prestasi
 Route::get('/prestasi', [PrestasiController::class,'index'])->name('prestasi');
+Route::get('/prestasi/{prestasi:id}',[PrestasiController::class,'show'])->name('prestasi.show');
+
 
 // Route::get('',[FasilitasController::class,'index'])->name('fasilitas.show');
 // jadwal

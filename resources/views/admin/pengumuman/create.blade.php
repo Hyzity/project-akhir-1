@@ -18,13 +18,18 @@
                     @csrf
                     <div class="form-group">
                         <label for="judul">Judul</label>
-                        <input required="" type="" name="judul" placeholder="" class="form-control title">
+                        <input type="" name="judul" placeholder="" class="form-control title">
                     </div>
+                    @error('judul')
+                            <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea required="" name="deskripsi" id="deskripsi" class="text-dark form-control summernote"></textarea>
-                        
+                        <textarea name="deskripsi" id="deskripsi" class="text-dark form-control"></textarea>
                     </div>
+                    @error('deskripsi')
+                            <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-sm">UPLOAD</button>
                     </div>

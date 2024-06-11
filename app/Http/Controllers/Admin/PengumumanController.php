@@ -45,6 +45,13 @@ class PengumumanController extends Controller
         $request->merge([
             'deskripsi' => strip_tags($request->input('deskripsi'))
         ]);
+        $request->validate([
+            'deskripsi' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
+        ], [
+            'deskripsi.required' => 'Deskripsi tidak boleh kosong. Silahkan masukkan deskripsi.',
+            'judul.required' => 'Judul tidak boleh kosong. Silahkan masukkan judul.',
+        ]);
         Pengumuman::create($request->all());
 
         return redirect()->route('admin.pengumuman.index')->with('success','Pengumuman berhasil ditambah');
@@ -86,6 +93,13 @@ class PengumumanController extends Controller
         ]);
         $request->merge([
             'deskripsi' => strip_tags($request->input('deskripsi'))
+        ]);
+        $request->validate([
+            'deskripsi' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
+        ], [
+            'deskripsi.required' => 'Deskripsi tidak boleh kosong. Silahkan masukkan deskripsi.',
+            'judul.required' => 'Judul tidak boleh kosong. Silahkan masukkan judul.',
         ]);
         $pengumuman->update($request->all());
            

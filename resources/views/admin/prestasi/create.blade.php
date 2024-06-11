@@ -15,14 +15,14 @@
                     @csrf
                     <div class="form-group">
                         <label for="judul">Nama Prestasi</label>
-                        <input type="text" name="judul" placeholder="Masukkan Nama Prestasi" class="form-control">
+                        <input type="text" name="judul" placeholder="Masukkan Nama Prestasi" class="form-control" value="{{ old('judul') }}">
                         @error('judul')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi *(Jelaskan prestasi yang telah didapatkan murid)</label>
-                        <input type="text" name="deskripsi" placeholder="Masukkan Deskripsi" class="form-control">
+                        <input type="text" name="deskripsi" placeholder="Masukkan Deskripsi" class="form-control" value="{{ old('deskripsi') }}" >
                         @error('deskripsi')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

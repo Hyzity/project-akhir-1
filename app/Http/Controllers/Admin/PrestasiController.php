@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\View\Factory;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Support\Facades\Auth;
+
 class PrestasiController extends Controller
 {
 
@@ -57,8 +58,14 @@ class PrestasiController extends Controller
         $request->validate([
             'deskripsi' => 'required|string|max:255',
             'judul' => 'required|string|max:255',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+        ], [
+            'deskripsi.required' => 'Deskripsi tidak boleh kosong. Silahkan masukkan deskripsi.',
+            'judul.required' => 'Judul tidak boleh kosong. Silahkan masukkan judul.',
+            'gambar.required' => 'Silahkan masukkan gambar dengan format jpeg, png, jpg, gif, svg dan webp.',
+            'gambar.max' => 'Gambar terlalu besar. Silahkan unggah kurang dari 5MB',
         ]);
+
 
         $filename = null;
         if ($request->hasFile('gambar')) {
@@ -113,9 +120,14 @@ class PrestasiController extends Controller
         }
 
         $request->validate([
+            'deskripsi' => 'required|string|max:255',
             'judul' => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-            'gambar' => 'nullable|image|mimes:png,jpg,gif,jpeg,svg,webp,jfif|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+        ], [
+            'deskripsi.required' => 'Deskripsi tidak boleh kosong. Silahkan masukkan deskripsi.',
+            'judul.required' => 'Judul tidak boleh kosong. Silahkan masukkan judul.',
+            'gambar.mimes' => 'Silahkan masukkan gambar dengan format jpeg, png, jpg, gif, svg dan webp.',
+            'gambar.max' => 'Gambar terlalu besar. Silahkan unggah kurang dari 5MB',
         ]);
         $user_id = Auth::id();
 
@@ -169,5 +181,11 @@ class PrestasiController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Penghapusan data gagal. Silahkan coba lagi nanti.');
         }
+    }
+
+
+    public function show(Prestasi $prestasi)
+    {
+        return view('prestasi.show', compact('prestasi', 'alamak'));
     }
 }

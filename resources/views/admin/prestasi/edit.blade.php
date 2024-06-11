@@ -49,21 +49,11 @@
                     <div class="form-group">
                         <label for="gambar">Foto Prestasi</label>
                         <div class="row">
-                            <div class="col">
-                                @if ($prestasi->gambar)
-                                    <div class="mb-3">
-                                        <img src="{{ asset('img/prestasi/' . $prestasi->gambar) }}" alt="Gambar Prestasi"
-                                            class="img-thumbnail" style="max-height: 200px;">
-                                    </div>
-                                    <b>*Foto lama</b>
-                                    <p>**Anda bisa mengganti gambar (jika diperlukan). Namun jika tidak, boleh di biarkan
-                                        begitu saja.</p>
-                                    <input type="hidden" name="old_foto" value="{{ $prestasi->gambar }}">
-                                @endif
-                            </div>
+                            <input type="hidden" name="old_foto" value="{{ $prestasi->gambar }}">
                             <div class="col">
                                 <input type="file" name="gambar" class="dropify"
-                                    data-allowed-file-extensions="png jpg gif jpeg svg webp jfif">
+                                    data-allowed-file-extensions="png jpg gif jpeg svg webp jfif"
+                                    data-default-file="{{ asset('img/prestasi/' . $prestasi->gambar) }}">
                                 @if ($errors->has('gambar'))
                                     <span class="text-danger">{{ $errors->first('gambar') }}</span>
                                 @endif

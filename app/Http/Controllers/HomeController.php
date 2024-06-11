@@ -17,6 +17,7 @@ class HomeController extends Controller
     	return view('home.index',[
             'artikel' => Artikel::with(['user','kategoriArtikel'])->latest()->take(2)->get(),
             'pengumuman' => Pengumuman::with(['user'])->latest()->take(4)->get(),
+            'prestasi' => Prestasi::with(['user'])->latest()->take(3)->get(),
         ]);
     }
 

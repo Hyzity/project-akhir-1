@@ -11,9 +11,10 @@
         <div class="row">
             @foreach ($prestasi as $index => $pres)
             <div class="col-md-3">
+                <a href="{{ route('prestasi.show', $pres->id) }}">
                 <div class="card mb-3">
                     <div class="card-img-container">
-                        <img class="card-img-top" src="{{ asset('img/prestasi/' . $pres->gambar) }}" alt="Gambar Prestasi">
+                        <img class="card-img-top" src="{{ asset('img/prestasi/' . $pres->gambar) }}" alt="Prestasi {{ $pres->judul }}">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $pres->judul }}</h5>
@@ -24,6 +25,7 @@
                         </p>
                     </div>
                 </div>
+                </a>
             </div>
             @endforeach
         </div>
