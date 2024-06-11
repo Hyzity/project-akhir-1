@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2024 at 08:19 AM
+-- Generation Time: Jun 11, 2024 at 04:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -107,17 +107,6 @@ CREATE TABLE `fasilitas` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `fasilitas`
---
-
-INSERT INTO `fasilitas` (`id`, `deskripsi`, `nama_fasilitas`, `user_id`, `foto_fasilitas`, `created_at`, `updated_at`) VALUES
-(1, 'Perpustakaan SD Negeri 173100 Tarutung adalah pusat sumber belajar yang penting bagi siswa dan guru. Perpustakaan ini dirancang untuk menyediakan lingkungan yang kondusif bagi kegiatan membaca, penelitian, dan pengembangan keterampilan literasi. Fasilitas perpustakaan yang lengkap dan nyaman mendukung pembelajaran yang efektif dan menyenangkan.', 'PERPUSTAKAAN', 1, '1717592040_PERPUSTAKAAN.jpg', '2024-06-05 05:54:00', '2024-06-05 05:54:00'),
-(2, 'Fasilitas Chromebook di SD Negeri 173100 Tarutung adalah bagian dari upaya sekolah untuk mengintegrasikan teknologi dalam proses belajar mengajar. Chromebook adalah perangkat komputer yang menggunakan sistem operasi Chrome OS dari Google, dirancang untuk memberikan akses cepat ke internet dan aplikasi berbasis web. Fasilitas ini bertujuan untuk meningkatkan keterampilan digital siswa dan mendukung pembelajaran interaktif.', 'CHROMEBOOK', 1, '1717592292_CHROMEBOOK2.jpg', '2024-06-05 05:58:12', '2024-06-05 05:58:12'),
-(3, 'Fasilitas Closed-Circuit Television (CCTV) di SD Negeri 173100 Tarutung adalah bagian integral dari upaya sekolah untuk meningkatkan keamanan, pengawasan, dan perlindungan bagi siswa, staf, dan aset sekolah. CCTV memberikan pengawasan visual yang efektif terhadap berbagai area di sekolah, memungkinkan identifikasi cepat terhadap situasi yang memerlukan tindakan atau respons.', 'CCTV', 1, '1717594856_CCTV.jpg', '2024-06-05 06:40:56', '2024-06-05 06:40:56'),
-(4, 'Fasilitas toilet siswa di SD Negeri 173100 Tarutung adalah bagian penting dari lingkungan sekolah yang mendukung kesehatan dan kenyamanan siswa. Fasilitas ini didesain untuk memenuhi kebutuhan dasar siswa akan sanitasi dan kebersihan, serta memberikan lingkungan yang aman dan nyaman bagi mereka.', 'TOILET SISWA', 1, '1717595041_KAMAR MANDI 2.jpg', '2024-06-05 06:44:01', '2024-06-05 06:44:01'),
-(5, 'Fasilitas toilet guru di SD Negeri 173100 Tarutung merupakan bagian penting dari infrastruktur sekolah yang mendukung kenyamanan, kebersihan, dan kesehatan staf pengajar. Dengan menyediakan toilet yang nyaman, bersih, dan privasi, sekolah memberikan pesan positif tentang pentingnya kesejahteraan staf pengajar dan memperlihatkan apresiasi terhadap kontribusi mereka dalam proses pembelajaran. Fasilitas ini juga mencerminkan komitmen sekolah terhadap standar kebersihan yang tinggi dan menciptakan lingkungan yang kondusif untuk praktik sanitasi yang baik di antara staf pengajar.', 'TOILET GURU', 1, '1717595213_KAMAR MANDI GURU pg.jpg', '2024-06-05 06:46:53', '2024-06-05 06:46:53');
-
 -- --------------------------------------------------------
 
 --
@@ -133,6 +122,7 @@ CREATE TABLE `guru` (
   `tgl_lahir` date NOT NULL,
   `tempat_lahir` varchar(255) NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `status` enum('aktif','non_aktif') NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -141,11 +131,9 @@ CREATE TABLE `guru` (
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id`, `foto`, `nama`, `bidang_keahlian`, `pendidikan`, `tgl_lahir`, `tempat_lahir`, `user_id`, `created_at`, `updated_at`) VALUES
-(6, 'KhBSu5U25WhatsApp Image 2024-06-04 at 20.52.44_58f9a3f4.jpg', 'Lenni Nurcahaya Purba, S. Pd. SD', 'PGSD', 'S1 PGSD', '1976-01-11', 'Sosortapian', NULL, '2024-06-05 07:26:48', '2024-06-05 07:26:48'),
-(7, 'aC6YUyevUWhatsApp Image 2024-06-04 at 20.50.33_e6bdf86c.jpg', 'Roselina Hutagalung, S.Pd', 'PPKn', 'S1 PPKn', '1970-12-11', 'Tarutung', NULL, '2024-06-05 07:27:59', '2024-06-05 07:27:59'),
-(8, 'tdzf82HeGMINCEN SARAGIH.jpg', 'Mincen Saragih, S. Th.', 'OPERATOR SEKOLAH', 'S1 PAK', '1972-10-12', 'SIDAMANIK', 1, '2024-06-05 19:35:02', '2024-06-05 19:37:49'),
-(9, 'qAA7a63rALUKAS EDIANTA TARIGAN.jpg', 'Lukas Edianta Tarigan', 'PJOK', '-', '1996-04-13', 'Tarutung', NULL, '2024-06-05 19:53:21', '2024-06-05 19:53:21');
+INSERT INTO `guru` (`id`, `foto`, `nama`, `bidang_keahlian`, `pendidikan`, `tgl_lahir`, `tempat_lahir`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'aDaU9Yxyhdengan adek mawar.jpg', 'asdadadsasdads', 'ipa', 's1 biologi', '2024-06-15', 'Laguboti', NULL, 'non_aktif', '2024-06-11 06:42:21', '2024-06-11 06:42:21'),
+(2, '1ZLRUrBDdsok kali.jpg', 'mamamakansapi', 'Biologi', 's1 biologi', '2024-06-01', 'Laguboti', NULL, 'aktif', '2024-06-11 07:06:13', '2024-06-11 07:06:13');
 
 -- --------------------------------------------------------
 
@@ -167,68 +155,19 @@ CREATE TABLE `jadwal_haris` (
 --
 
 INSERT INTO `jadwal_haris` (`id`, `nama_hari`, `id_kelas`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'senin', 1, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(2, 'selasa', 1, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(3, 'rabu', 1, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(4, 'kamis', 1, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(5, 'jumat', 1, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(6, 'senin', 2, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(7, 'selasa', 2, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(8, 'rabu', 2, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(9, 'kamis', 2, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(10, 'jumat', 2, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(11, 'senin', 3, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(12, 'selasa', 3, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(13, 'rabu', 3, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(14, 'kamis', 3, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(15, 'jumat', 3, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(16, 'senin', 4, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(17, 'selasa', 4, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(18, 'rabu', 4, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(19, 'kamis', 4, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(20, 'jumat', 4, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(21, 'senin', 5, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(22, 'selasa', 5, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(23, 'rabu', 5, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(24, 'kamis', 5, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(25, 'jumat', 5, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(26, 'senin', 6, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(27, 'selasa', 6, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(28, 'rabu', 6, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(29, 'kamis', 6, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(30, 'jumat', 6, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(31, 'senin', 7, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(32, 'selasa', 7, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(33, 'rabu', 7, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(34, 'kamis', 7, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(35, 'jumat', 7, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(36, 'senin', 8, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(37, 'selasa', 8, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(38, 'rabu', 8, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(39, 'kamis', 8, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(40, 'jumat', 8, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(41, 'senin', 9, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(42, 'selasa', 9, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(43, 'rabu', 9, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(44, 'kamis', 9, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(45, 'jumat', 9, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(46, 'senin', 10, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(47, 'selasa', 10, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(48, 'rabu', 10, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(49, 'kamis', 10, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(50, 'jumat', 10, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(51, 'senin', 11, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(52, 'selasa', 11, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(53, 'rabu', 11, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(54, 'kamis', 11, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(55, 'jumat', 11, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(56, 'senin', 12, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(57, 'selasa', 12, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(58, 'rabu', 12, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(59, 'kamis', 12, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(60, 'jumat', 12, 1, '2024-06-04 21:22:50', '2024-06-04 21:22:50'),
-(61, 'sabtu', 1, 1, '2024-06-04 21:26:19', '2024-06-06 20:09:35'),
-(64, 'sabtu', 2, 1, '2024-06-06 20:27:12', '2024-06-06 20:27:12');
+(1, 'Rabu', 1, 1, '2024-06-11 06:30:48', '2024-06-11 06:30:48'),
+(2, 'Senin', 2, 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(3, 'Selasa', 2, 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(4, 'Rabu', 2, 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(5, 'Kamis', 2, 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(6, 'Jumat', 2, 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(7, 'Sabtu', 2, 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(8, 'Senin', 3, 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31'),
+(9, 'Selasa', 3, 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31'),
+(10, 'Rabu', 3, 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31'),
+(11, 'Kamis', 3, 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31'),
+(12, 'Jumat', 3, 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31'),
+(13, 'Sabtu', 3, 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31');
 
 -- --------------------------------------------------------
 
@@ -259,13 +198,6 @@ CREATE TABLE `kritikdan_sarans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `kritikdan_sarans`
---
-
-INSERT INTO `kritikdan_sarans` (`id`, `nama`, `email`, `isi`, `created_at`, `updated_at`) VALUES
-(1, 'Anisetus', 'anisetusm@gmail.com', 'jgfgjjg', '2024-06-05 00:09:08', '2024-06-05 00:09:08');
-
 -- --------------------------------------------------------
 
 --
@@ -277,6 +209,7 @@ CREATE TABLE `mata_pelajarans` (
   `mata_pelajaran` varchar(255) NOT NULL,
   `id_hari` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `id_guru` bigint(20) UNSIGNED DEFAULT NULL,
   `jam_mulai` time DEFAULT NULL,
   `jam_selesai` time DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -287,118 +220,9 @@ CREATE TABLE `mata_pelajarans` (
 -- Dumping data for table `mata_pelajarans`
 --
 
-INSERT INTO `mata_pelajarans` (`id`, `mata_pelajaran`, `id_hari`, `user_id`, `jam_mulai`, `jam_selesai`, `created_at`, `updated_at`) VALUES
-(1, 'PAK/PAI', 1, 1, NULL, NULL, '2024-06-04 21:23:17', '2024-06-04 21:23:17'),
-(2, 'PAK/PAI', 1, 1, NULL, NULL, '2024-06-04 21:23:28', '2024-06-04 21:23:28'),
-(3, 'TEMATIK', 1, 1, NULL, NULL, '2024-06-04 21:29:36', '2024-06-06 20:07:53'),
-(7, 'ISTIRAHAT', 1, 1, NULL, NULL, '2024-06-06 20:08:32', '2024-06-06 20:08:32'),
-(8, 'TEMATIK', 1, 1, NULL, NULL, '2024-06-06 20:08:44', '2024-06-06 20:08:44'),
-(9, 'TEMATIK', 1, 1, NULL, NULL, '2024-06-06 20:08:50', '2024-06-06 20:08:50'),
-(10, '-', 1, 1, NULL, NULL, '2024-06-06 20:08:57', '2024-06-06 20:08:57'),
-(11, '-', 1, 1, NULL, NULL, '2024-06-06 20:09:04', '2024-06-06 20:09:04'),
-(12, '-', 1, 1, NULL, NULL, '2024-06-06 20:09:14', '2024-06-06 20:09:14'),
-(13, 'TEMATIK', 2, 1, NULL, NULL, '2024-06-06 20:10:02', '2024-06-06 20:10:02'),
-(14, 'TEMATIK', 2, 1, NULL, NULL, '2024-06-06 20:10:12', '2024-06-06 20:10:12'),
-(15, 'TEMATIK', 2, 1, NULL, NULL, '2024-06-06 20:10:19', '2024-06-06 20:10:19'),
-(16, 'ISTIRAHAT', 2, 1, NULL, NULL, '2024-06-06 20:10:26', '2024-06-06 20:10:26'),
-(17, 'TEMATIK', 2, 1, NULL, NULL, '2024-06-06 20:10:41', '2024-06-06 20:10:41'),
-(18, 'TEMATIK', 2, 1, NULL, NULL, '2024-06-06 20:10:50', '2024-06-06 20:10:50'),
-(19, '-', 2, 1, NULL, NULL, '2024-06-06 20:11:02', '2024-06-06 20:11:02'),
-(20, '-', 2, 1, NULL, NULL, '2024-06-06 20:11:10', '2024-06-06 20:11:10'),
-(21, '-', 2, 1, NULL, NULL, '2024-06-06 20:11:16', '2024-06-06 20:11:16'),
-(22, 'TEMATIK', 3, 1, NULL, NULL, '2024-06-06 20:11:47', '2024-06-06 20:11:47'),
-(23, 'TEMATIK', 3, 1, NULL, NULL, '2024-06-06 20:11:54', '2024-06-06 20:11:54'),
-(24, 'TEMATIK', 3, 1, NULL, NULL, '2024-06-06 20:12:02', '2024-06-06 20:12:02'),
-(25, 'ISTIRAHAT', 3, 1, NULL, NULL, '2024-06-06 20:12:09', '2024-06-06 20:12:09'),
-(26, 'TEMATIK', 3, 1, NULL, NULL, '2024-06-06 20:12:27', '2024-06-06 20:12:27'),
-(27, 'TEMATIK', 3, 1, NULL, NULL, '2024-06-06 20:12:45', '2024-06-06 20:12:45'),
-(28, '-', 3, 1, NULL, NULL, '2024-06-06 20:12:53', '2024-06-06 20:12:53'),
-(29, '-', 3, 1, NULL, NULL, '2024-06-06 20:13:01', '2024-06-06 20:13:01'),
-(30, '-', 3, 1, NULL, NULL, '2024-06-06 20:13:09', '2024-06-06 20:13:09'),
-(31, 'TEMATIK', 4, 1, NULL, NULL, '2024-06-06 20:13:27', '2024-06-06 20:13:27'),
-(32, 'TEMATIK', 4, 1, NULL, NULL, '2024-06-06 20:13:36', '2024-06-06 20:13:36'),
-(33, 'TEMATIK', 4, 1, NULL, NULL, '2024-06-06 20:13:43', '2024-06-06 20:13:43'),
-(34, 'ISTIRAHAT', 4, 1, NULL, NULL, '2024-06-06 20:13:52', '2024-06-06 20:13:52'),
-(35, 'PAK/PAI', 4, 1, NULL, NULL, '2024-06-06 20:14:02', '2024-06-06 20:14:02'),
-(36, 'PAK/PAI', 4, 1, NULL, NULL, '2024-06-06 20:14:12', '2024-06-06 20:14:12'),
-(37, '-', 4, 1, NULL, NULL, '2024-06-06 20:14:22', '2024-06-06 20:14:22'),
-(38, '-', 4, 1, NULL, NULL, '2024-06-06 20:15:02', '2024-06-06 20:15:02'),
-(39, '-', 4, 1, NULL, NULL, '2024-06-06 20:15:09', '2024-06-06 20:15:09'),
-(40, 'TEMATIK', 5, 1, NULL, NULL, '2024-06-06 20:15:28', '2024-06-06 20:15:28'),
-(41, 'TEMATIK', 5, 1, NULL, NULL, '2024-06-06 20:15:35', '2024-06-06 20:15:35'),
-(42, 'TEMATIK', 5, 1, NULL, NULL, '2024-06-06 20:15:41', '2024-06-06 20:15:41'),
-(43, 'ISTIRAHAT', 5, 1, NULL, NULL, '2024-06-06 20:15:50', '2024-06-06 20:15:50'),
-(44, 'TEMATIK', 5, 1, NULL, NULL, '2024-06-06 20:15:59', '2024-06-06 20:15:59'),
-(45, 'TEMATIK', 5, 1, NULL, NULL, '2024-06-06 20:16:09', '2024-06-06 20:16:09'),
-(46, 'JUMAT BERSIH', 5, 1, NULL, NULL, '2024-06-06 20:16:27', '2024-06-06 20:16:27'),
-(47, 'TEMATIK', 61, 1, NULL, NULL, '2024-06-06 20:17:47', '2024-06-06 20:17:47'),
-(48, 'TEMATIK', 61, 1, NULL, NULL, '2024-06-06 20:17:56', '2024-06-06 20:17:56'),
-(49, 'TEMATIK', 61, 1, NULL, NULL, '2024-06-06 20:18:04', '2024-06-06 20:18:04'),
-(50, 'ISTIRAHAT', 61, 1, NULL, NULL, '2024-06-06 20:18:18', '2024-06-06 20:18:18'),
-(51, 'TEMATIK', 61, 1, NULL, NULL, '2024-06-06 20:18:32', '2024-06-06 20:18:32'),
-(52, 'BAHASA DAERAH', 61, 1, NULL, NULL, '2024-06-06 20:18:54', '2024-06-06 20:18:54'),
-(53, 'TEMATIK', 6, 1, NULL, NULL, '2024-06-06 20:31:25', '2024-06-06 20:31:25'),
-(54, 'TEMATIK', 6, 1, NULL, NULL, '2024-06-06 20:31:31', '2024-06-06 20:31:31'),
-(55, 'TEMATIK', 6, 1, NULL, NULL, '2024-06-06 20:31:38', '2024-06-06 20:31:38'),
-(56, 'ISTIRAHAT', 6, 1, NULL, NULL, '2024-06-06 20:31:45', '2024-06-06 20:31:45'),
-(57, 'TEMATIK', 6, 1, NULL, NULL, '2024-06-06 20:31:55', '2024-06-06 20:31:55'),
-(58, 'TEMATIK', 6, 1, NULL, NULL, '2024-06-06 20:32:03', '2024-06-06 20:32:03'),
-(59, '-', 6, 1, NULL, NULL, '2024-06-06 20:32:31', '2024-06-06 20:32:31'),
-(60, '-', 6, 1, NULL, NULL, '2024-06-06 20:32:38', '2024-06-06 20:32:38'),
-(61, '-', 6, 1, NULL, NULL, '2024-06-06 20:32:47', '2024-06-06 20:32:47'),
-(62, 'PAK/PAI', 7, 1, NULL, NULL, '2024-06-06 20:33:04', '2024-06-06 20:33:04'),
-(63, 'PAK/PAI', 7, 1, NULL, NULL, '2024-06-06 20:33:18', '2024-06-06 20:33:18'),
-(64, 'TEMATIK', 7, 1, NULL, NULL, '2024-06-06 20:33:27', '2024-06-06 20:33:27'),
-(66, 'ISTIRAHAT', 7, 1, NULL, NULL, '2024-06-06 20:33:51', '2024-06-06 20:33:51'),
-(67, 'TEMATIK', 7, 1, NULL, NULL, '2024-06-06 20:33:58', '2024-06-06 20:33:58'),
-(68, 'TEMATIK', 7, 1, NULL, NULL, '2024-06-06 20:34:08', '2024-06-06 20:34:08'),
-(69, '-', 7, 1, NULL, NULL, '2024-06-06 20:34:29', '2024-06-06 20:34:29'),
-(70, '-', 7, 1, NULL, NULL, '2024-06-06 20:34:36', '2024-06-06 20:34:36'),
-(71, '-', 7, 1, NULL, NULL, '2024-06-06 20:34:46', '2024-06-06 20:34:46'),
-(72, 'TEMATIK', 8, 1, NULL, NULL, '2024-06-06 20:35:26', '2024-06-06 20:35:26'),
-(73, 'TEMATIK', 8, 1, NULL, NULL, '2024-06-06 20:35:36', '2024-06-06 20:35:36'),
-(74, 'TEMATIK', 8, 1, NULL, NULL, '2024-06-06 20:35:43', '2024-06-06 20:35:43'),
-(75, 'ISTIRAHAT', 8, 1, NULL, NULL, '2024-06-06 20:35:50', '2024-06-06 20:35:50'),
-(76, 'TEMATIK', 8, 1, NULL, NULL, '2024-06-06 20:35:57', '2024-06-06 20:35:57'),
-(77, 'TEMATIK', 8, 1, NULL, NULL, '2024-06-06 20:36:09', '2024-06-06 20:36:40'),
-(78, '-', 8, 1, NULL, NULL, '2024-06-06 20:36:15', '2024-06-06 20:36:15'),
-(79, '-', 8, 1, NULL, NULL, '2024-06-06 20:36:24', '2024-06-06 20:36:24'),
-(80, '-', 8, 1, NULL, NULL, '2024-06-06 20:36:52', '2024-06-06 20:37:02'),
-(81, 'TEMATIK', 9, 1, NULL, NULL, '2024-06-06 20:38:19', '2024-06-06 20:38:19'),
-(82, 'TEMATIK', 9, 1, NULL, NULL, '2024-06-06 20:38:25', '2024-06-06 20:38:25'),
-(83, 'TEMATIK', 9, 1, NULL, NULL, '2024-06-06 20:38:39', '2024-06-06 20:38:39'),
-(84, 'ISTIRAHAT', 9, 1, NULL, NULL, '2024-06-06 20:38:56', '2024-06-06 20:38:56'),
-(85, 'TEMATIK', 9, 1, NULL, NULL, '2024-06-06 20:39:03', '2024-06-06 20:39:03'),
-(86, 'BAHASA DAERAH', 9, 1, NULL, NULL, '2024-06-06 20:39:14', '2024-06-06 20:39:14'),
-(87, '-', 9, 1, NULL, NULL, '2024-06-06 20:39:31', '2024-06-06 20:39:31'),
-(88, '-', 9, 1, NULL, NULL, '2024-06-06 20:39:39', '2024-06-06 20:39:39'),
-(89, '-', 9, 1, NULL, NULL, '2024-06-06 20:39:48', '2024-06-06 20:39:48'),
-(90, 'TEMATIK', 10, 1, NULL, NULL, '2024-06-06 20:40:03', '2024-06-06 20:40:03'),
-(91, 'TEMATIK', 10, 1, NULL, NULL, '2024-06-06 20:40:11', '2024-06-06 20:40:11'),
-(92, 'TEMATIK', 10, 1, NULL, NULL, '2024-06-06 20:40:20', '2024-06-06 20:40:20'),
-(93, 'ISTIRAHAT', 10, 1, NULL, NULL, '2024-06-06 20:45:31', '2024-06-06 20:45:31'),
-(94, 'PAK/PAI', 10, 1, NULL, NULL, '2024-06-06 20:47:46', '2024-06-06 20:47:46'),
-(95, 'PAK/PAI', 10, 1, NULL, NULL, '2024-06-06 20:47:54', '2024-06-06 20:47:54'),
-(96, 'JUMAT BERSIH', 10, 1, NULL, NULL, '2024-06-06 20:48:08', '2024-06-06 20:48:08'),
-(97, 'TEMATIK', 64, 1, NULL, NULL, '2024-06-06 20:48:55', '2024-06-06 20:48:55'),
-(98, 'TEMATIK', 64, 1, NULL, NULL, '2024-06-06 20:49:02', '2024-06-06 20:49:02'),
-(99, 'TEMATIK', 64, 1, NULL, NULL, '2024-06-06 20:49:09', '2024-06-06 20:49:09'),
-(100, 'ISTIRAHAT', 64, 1, NULL, NULL, '2024-06-06 20:49:17', '2024-06-06 20:49:17'),
-(101, 'TEMATIK', 64, 1, NULL, NULL, '2024-06-06 20:49:23', '2024-06-06 20:49:23'),
-(102, 'TEMATIK', 64, 1, NULL, NULL, '2024-06-06 20:49:31', '2024-06-06 20:49:31'),
-(103, 'TEMATIK', 11, 1, NULL, NULL, '2024-06-06 20:52:35', '2024-06-06 20:52:35'),
-(104, 'TEMATIK', 11, 1, NULL, NULL, '2024-06-06 20:52:40', '2024-06-06 20:52:40'),
-(105, 'TEMATIK', 11, 1, NULL, NULL, '2024-06-06 20:52:45', '2024-06-06 20:52:45'),
-(106, 'ISTIRAHAT', 11, 1, NULL, NULL, '2024-06-06 20:52:51', '2024-06-06 20:52:51'),
-(107, 'PAK/PAI', 11, 1, NULL, NULL, '2024-06-06 20:52:59', '2024-06-06 20:52:59'),
-(108, 'PAK/PAI', 11, 1, NULL, NULL, '2024-06-06 20:53:05', '2024-06-06 20:53:05'),
-(109, '-', 11, 1, NULL, NULL, '2024-06-06 20:59:41', '2024-06-06 20:59:41'),
-(110, 'TEMATIK', 11, 1, NULL, NULL, '2024-06-06 20:59:47', '2024-06-06 20:59:47'),
-(111, '-', 11, 1, NULL, NULL, '2024-06-06 20:59:53', '2024-06-06 20:59:53'),
-(112, 'TEMATIK', 12, 1, NULL, NULL, '2024-06-06 21:01:25', '2024-06-06 21:01:25'),
-(113, 'TEMATIK', 12, 1, NULL, NULL, '2024-06-06 21:01:31', '2024-06-06 21:01:31'),
-(114, 'TEMATIK', 12, 1, NULL, NULL, '2024-06-06 21:01:42', '2024-06-06 21:01:42'),
-(115, 'TEMATIK', 12, 1, NULL, NULL, '2024-06-06 21:01:43', '2024-06-06 21:01:43');
+INSERT INTO `mata_pelajarans` (`id`, `mata_pelajaran`, `id_hari`, `user_id`, `id_guru`, `jam_mulai`, `jam_selesai`, `created_at`, `updated_at`) VALUES
+(1, 'Biologi', 1, 1, 1, NULL, NULL, '2024-06-11 06:43:55', '2024-06-11 07:06:25'),
+(2, 'ipa', 1, 1, 1, NULL, NULL, '2024-06-11 06:45:00', '2024-06-11 06:45:00');
 
 -- --------------------------------------------------------
 
@@ -454,18 +278,9 @@ CREATE TABLE `nama_kelas` (
 --
 
 INSERT INTO `nama_kelas` (`id`, `nama_kelas`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, '1A', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(2, '1B', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(3, '2A', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(4, '2B', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(5, '3A', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(6, '3B', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(7, '4A', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(8, '4B', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(9, '5A', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(10, '5B', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(11, '6A', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45'),
-(12, '6B', 1, '2024-06-04 21:22:45', '2024-06-04 21:22:45');
+(1, '4', 1, '2024-06-11 06:30:40', '2024-06-11 06:30:40'),
+(2, 'kelas 3', 1, '2024-06-11 07:41:26', '2024-06-11 07:41:26'),
+(3, '8', 1, '2024-06-11 07:43:31', '2024-06-11 07:43:31');
 
 -- --------------------------------------------------------
 
@@ -550,7 +365,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$P9lGBG/xvDNKR7RMSDbYdemlQY424ExRcyuhJEwcCt/lZjZYsICkG', NULL, NULL, NULL, '2024-06-04 21:22:42', '2024-06-04 21:22:42');
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$Cy1fCfDC0kwrfBpz2qV.FOBpJfqxj8rjf8xRgaJZOM5O1vnxQJ2ga', NULL, NULL, NULL, '2024-06-11 06:28:54', '2024-06-11 06:28:54');
 
 --
 -- Indexes for dumped tables
@@ -621,7 +436,8 @@ ALTER TABLE `kritikdan_sarans`
 ALTER TABLE `mata_pelajarans`
   ADD PRIMARY KEY (`id`),
   ADD KEY `mata_pelajarans_user_id_foreign` (`user_id`),
-  ADD KEY `mata_pelajarans_id_hari_foreign` (`id_hari`);
+  ADD KEY `mata_pelajarans_id_hari_foreign` (`id_hari`),
+  ADD KEY `mata_pelajarans_id_guru_foreign` (`id_guru`);
 
 --
 -- Indexes for table `migrations`
@@ -701,19 +517,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jadwal_haris`
 --
 ALTER TABLE `jadwal_haris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kategori_artikel`
@@ -725,13 +541,13 @@ ALTER TABLE `kategori_artikel`
 -- AUTO_INCREMENT for table `kritikdan_sarans`
 --
 ALTER TABLE `kritikdan_sarans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `mata_pelajarans`
 --
 ALTER TABLE `mata_pelajarans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -743,7 +559,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nama_kelas`
 --
 ALTER TABLE `nama_kelas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `navbars`
@@ -796,6 +612,7 @@ ALTER TABLE `jadwal_haris`
 -- Constraints for table `mata_pelajarans`
 --
 ALTER TABLE `mata_pelajarans`
+  ADD CONSTRAINT `mata_pelajarans_id_guru_foreign` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `mata_pelajarans_id_hari_foreign` FOREIGN KEY (`id_hari`) REFERENCES `jadwal_haris` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `mata_pelajarans_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 

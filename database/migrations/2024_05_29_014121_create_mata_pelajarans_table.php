@@ -18,10 +18,12 @@ class CreateMataPelajaransTable extends Migration
             $table->string('mata_pelajaran');
             $table->unsignedBigInteger('id_hari');
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('id_guru')->nullable();
             $table->time('jam_mulai')->nullable();
             $table->time('jam_selesai')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_hari')->references('id')->on('jadwal_haris')->onDelete('cascade');
+            $table->foreign('id_guru')->references('id')->on('guru')->onDelete('cascade');
             $table->timestamps();
         });
     }

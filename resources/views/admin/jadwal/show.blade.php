@@ -1,6 +1,6 @@
 @extends('layouts.backend.app', [
-'title' => 'Tambah Fasilitas',
-'contentTitle' => $idkelas->nama_kelas,
+    'title' => 'Tambah Fasilitas',
+    'contentTitle' => $idkelas->nama_kelas,
 ])
 
 @push('css')
@@ -8,22 +8,19 @@
 @endpush
 
 @section('content')
-<div class ="mb-2"><a href="{{route('admin.jadwal.createHari', $idkelas)}}" class="btn btn-primary btn-sm">Tambah Hari</a>
-    <a href="{{route('admin.jadwal.editKelas', $idkelas)}}" class="btn btn-primary btn-sm">Edit Nama Kelas</a>
-    <a href="{{route('admin.jadwal.destroyKelas', $idkelas)}}" onclick="return confirm('Apakah anda ingin menghapus ?')" class="btn btn-danger btn-sm ">hapus</a>
+<div class="mb-2">
+    
+    <a href="{{ route('admin.jadwal.editKelas', $idkelas) }}" class="btn btn-primary btn-sm">Edit Nama Kelas</a>
+    <a href="{{ route('admin.jadwal.destroyKelas', $idkelas) }}" onclick="return confirm('Apakah anda ingin menghapus ?')" class="btn btn-danger btn-sm">Hapus</a>
 </div>
-
 
 <x-alert></x-alert>
 
 @foreach($hari as $jadwal)
-
 <div class="row mt-5">
     <div class="col">
         <div class="card">
             <div class="card-header row">
-                <a href="{{ route('admin.jadwal.editHari',  $jadwal->id, $idkelas) }}" class="btn btn-primary btn-sm">Edit Nama Hari</a>
-                <a href="{{ route('admin.jadwal.destroyHari',$jadwal->id) }}" onclick="return confirm('Apakah anda ingin menghapus ?')" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></a>
             </div>
             <div class="card-body table-responsive">
                 <h1>{{ $jadwal->nama_hari }}</h1>
@@ -34,6 +31,7 @@
                             <th>No</th>
                             <th>Waktu</th>
                             <th>Pelajaran</th>
+                            <th>Guru</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -46,22 +44,20 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $waktu[$index] }}</td>
                             <td>{{ $mp->mata_pelajaran }}</td>
-                            <td> <a href="{{ route('admin.jadwal.editPelajaran', $mp->id) }}" class="btn btn-primary btn-sm">Edit Nama Hari</a><a href="{{ route('admin.jadwal.destroyPelajaran',$mp->id) }}" onclick="return confirm('Apakah anda ingin menghapus ?')" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></a></td>
+                            <td>{{ isset($namaguru[$mp->id]) ? $namaguru[$mp->id]->nama : 'Tidak ada guru' }}</td>
+                            <td>
+                                <a href="{{ route('admin.jadwal.editPelajaran', $mp->id) }}" class="btn btn-primary btn-sm">Edit Nama Hari</a>
+                                <a href="{{ route('admin.jadwal.destroyPelajaran', $mp->id) }}" onclick="return confirm('Apakah anda ingin menghapus ?')" class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash fa-fw"></i></a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </div>
-
-
 @endforeach
-
-
-
 @stop
 
 @push('js')

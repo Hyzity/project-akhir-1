@@ -15,7 +15,7 @@ class CreateJadwalHarisTable extends Migration
     {
         Schema::create('jadwal_haris', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_hari');
+            $table->enum('nama_hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']);
             $table->unsignedBigInteger('id_kelas');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('id_kelas')->references('id')->on('nama_kelas')->onDelete('cascade');

@@ -13,7 +13,8 @@ protected $fillable = [
 
     'mata_pelajaran',
     'id_hari',
-    'user_id'
+    'user_id',
+    'id_guru'
 
 ];
 }
