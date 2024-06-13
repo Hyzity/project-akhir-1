@@ -23,11 +23,11 @@
                                 <th>Foto</th>
                                 <th>Nama</th>
                                 <th>Bidang Keahlian</th>
-                                <th>tempat_lahir</th>
+                                <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>
                                 <th>Pendidikan</th>
-                                <th>status</th>
-                                <th>edit status</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,9 +48,21 @@
                                     <td>{{ $data->status }}</td>
                                     <td>
                                         <div class="row ml-2">
-                                            <a href="{{ route('admin.guru.edit', $data->id) }}"
-                                                class="btn btn-primary btn-sm"><i class="fas fa-edit fa-fw"></i></a>
+                                            <a href="{{ route('admin.guru.edit', $data->id) }}" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-edit fa-fw"></i>
+                                            </a>
+                                            @if($data->status == 'non_aktif')
+                                                <a href="{{ route('admin.guru.activate', $data->id) }}" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-check fa-fw"></i>
+                                                </a>
+                                            @else
+                                            <a href="{{ route('admin.guru.deactivate', $data->id) }}" class="btn btn-danger btn-sm"
+                                                onclick="return confirmStatusChange('deactivate');">
+                                                 <i class="fas fa-ban fa-fw"></i>
+                                             </a>
+                                            @endif
                                         </div>
+                                        
                                     </td>
                                 </tr>
                             @endforeach
@@ -70,5 +82,12 @@
         $(function() {
             $("#dataTable1").DataTable();
         });
+        function confirmStatusChange(action) {
+        var message = "Apakah Anda yakin ingin ";
+        message += (action === 'activate') ? "mengaktifkan" : "menonaktifkan";
+        message += " status guru ini?";
+        return confirm(message);
+    }
+</script>
     </script>
 @endpush

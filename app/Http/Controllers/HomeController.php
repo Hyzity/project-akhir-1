@@ -8,7 +8,7 @@ use App\Models\Agenda;
 use App\Models\Artikel;
 use App\Models\Pengumuman;
 use App\Models\KritikdanSaran;
-use App\Models\Prestasi;
+use App\Models\Prestasi;    
 
 class HomeController extends Controller
 {
