@@ -11,13 +11,12 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Nama Pelajaran</label>
-                        <select name="mata_pelajaran" class="form-control">
+                        <select name="id_guru" class="form-control">
                             <option value="">-- Pilih Mata Pelajaran --</option>
                             @foreach ($gurus as $guru)
-                                <option value="{{ $guru->bidang_keahlian }}">{{ $guru->bidang_keahlian }} -
+                                <option value="{{ $guru->id}}">{{ $guru->bidang_keahlian }} -
                                     {{ $guru->nama }}</option>
-                                <input type="text" name="id_guru" value="{{ $guru->id }}" class="form-control"
-                                    hidden>
+                               
                             @endforeach
                         </select>
                         @error('mata_pelajaran')

@@ -95,18 +95,32 @@ class JadwalController extends Controller
     }
     public function storePelajaran(Request $request)
     {
+        // Validasi input
         $validate = $request->validate([
-            'mata_pelajaran' => 'required|',
             'id_hari' => 'required',
             'id_guru' => 'required',
             'id_kelas' => 'required'
         ]);
-        $idkelas = $request['id_kelas'];
-
+    
+        // Temukan guru berdasarkan ID yang diberikan
+        $guru = Guru::findOrFail($validate['id_guru']);
+        
+        // Mengambil mata pelajaran dari bidang keahlian guru
+        $validate['mata_pelajaran'] = $guru->bidang_keahlian;
+        
+        // Ambil ID kelas dari request
+        $idkelas = $request->input('id_kelas');
+    
+        // Set user_id ke ID pengguna yang sedang login
         $validate['user_id'] = Auth::user()->id;
+    
+        // Buat dan simpan data mata pelajaran
         MataPelajaran::create($validate);
+    
+        // Redirect ke halaman tampilan jadwal dengan pesan sukses
         return redirect()->route('admin.jadwal.showhari', $idkelas)->with('success', 'Data berhasil disimpan');
     }
+    
     public function destroyKelas($id)
     {
         $kelas = NamaKelas::findOrFail($id);

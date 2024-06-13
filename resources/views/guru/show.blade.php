@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-
     <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3 height-400">
         <h3 style="padding-top: 150px;">{{ $guru->nama }}</h3>
     </div>
@@ -34,29 +32,10 @@
             </div>
         </div>
     </div>
-    <style>
-        /* .image-container {
-            position: relative;
-            width: 485px;
-            padding-bottom: 100%;
-            overflow: hidden;
-            border-radius: 20px;
-            border: 4px solid #860000;
-            margin: auto;
-        }
 
-        .square-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        } */
-    </style>
     <style>
         .blog-details-content {
-            padding: 50px;
+            padding: 20px; /* Ubah padding menjadi lebih kecil */
         }
 
         .container {
@@ -67,7 +46,7 @@
         .card {
             position: relative;
             width: 100%;
-            max-width: 1131px;
+            max-width: 800px; /* Mengurangi lebar maksimum kartu */
             background-color: white;
             border-radius: 20px;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -77,15 +56,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 20px; /* Ubah padding konten kartu */
             background-color: #860000;
             border-radius: 20px;
             color: white;
         }
 
         .image-container {
-            width: 300px; /* Fixed width for cropping */
-            height: 300px; /* Fixed height for cropping */
+            width: 200px; /* Mengurangi lebar kontainer gambar */
+            height: 200px; /* Mengurangi tinggi kontainer gambar */
             overflow: hidden;
             border-radius: 20px;
         }
@@ -107,30 +86,30 @@
 
         .details li {
             margin-bottom: 20px;
-            font-size: 20px;
+            font-size: 16px; /* Mengurangi ukuran font untuk tampilan yang lebih kecil */
         }
 
         @media (min-width: 768px) {
             .card-content {
                 flex-direction: row;
                 align-items: flex-start;
-                padding: 40px;
+                padding: 40px; /* Sesuaikan padding untuk tampilan desktop */
             }
 
             .image-container {
-                margin-right: 50px;
+                margin-right: 30px; /* Mengurangi margin untuk tampilan desktop */
                 margin-bottom: 0;
-                width: 300px; /* Fixed width for cropping */
-                height: 300px; /* Fixed height for cropping */
+                width: 200px; /* Mengurangi lebar kontainer gambar untuk tampilan desktop */
+                height: 200px; /* Mengurangi tinggi kontainer gambar untuk tampilan desktop */
             }
 
             .details {
-                margin-left: 100px;
+                margin-left: 50px; /* Mengurangi margin untuk tampilan desktop */
             }
 
             .details li {
-                font-size: 25px;
-                margin-bottom: 30px;
+                font-size: 18px; /* Mengurangi ukuran font untuk tampilan desktop */
+                margin-bottom: 20px; /* Sesuaikan margin untuk tampilan desktop */
             }
         }
     </style>
