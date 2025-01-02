@@ -19,7 +19,7 @@
             </p>
         </div>
         <div class="col text-center">
-            <img src="img/bg/bg1.jpg" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt="Sekolah diwaktu istirahat">
+            <img src="img/bg/images.jpeg" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt="Sekolah diwaktu istirahat">
         </div>
     </div>
 

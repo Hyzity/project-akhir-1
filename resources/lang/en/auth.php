@@ -15,6 +15,6 @@ return [
 
     'failed' => 'Data akun tidak ditemukan.',
     'password' => 'Password anda salah. Silahkan masukkan lagi.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'Terlalu banyak percobaan. Silahkan coba :seconds detik lagi.',
 
 ];

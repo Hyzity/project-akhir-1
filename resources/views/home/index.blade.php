@@ -28,7 +28,7 @@
                 <div class="col-md-4">
                     <div style="color: white;">
                         <div>
-                            <h1 style="color: white; font-size: 80px;">12</h1>
+                            <h1 style="color: white; font-size: 80px;">@count('nama_kelas')</h1>
                             <h6 style="color: white; ">Kelas Aktif</h6>
                         </div>
                     </div>
